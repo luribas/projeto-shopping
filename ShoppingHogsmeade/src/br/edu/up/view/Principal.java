@@ -9,16 +9,24 @@ public class Principal {
 	static AdministradorView administradorView = new AdministradorView(); 
 
 	public static void main(String[] args) {
-		menu();
-		int opMenu = scanner.nextInt();
+		menuPrincipal();
+	}
 
+	static public void menuPrincipal() {
+		System.out.println("\n *    MENU    *");
+		System.out.println(" 1 - Área Administrador");
+		System.out.println(" 2 - Área Cliente");
+		System.out.println(" 3 - Área Cozinha");
+		System.out.print("\n -> ");
+		int opMenu = 0;
+		opMenu = scanner.nextInt();
 		do {
 			switch (opMenu) {
 				case 1:
 					administradorView.getClass();
 					break;
 				case 2:
-					clienteView.getClass();
+					clienteView.menuCliente();
 					break;
 				case 3:
 					cozinhaView.getClass();
@@ -27,13 +35,6 @@ public class Principal {
 					System.out.println("\n Opção inválida. Tente novamente.");
 					break;
 			}
-		} while (opMenu > 0);
-	}
-
-	static public void menu() {
-		System.out.println("\n *    MENU    *");
-		System.out.println(" 1 - Área Administrador");
-		System.out.println(" 2 - Área Cliente");
-		System.out.println(" 3 - Área Cozinha");
+		} while (opMenu > 0 && opMenu < 3);
 	}
 }

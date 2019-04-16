@@ -10,47 +10,51 @@ public class ClienteView {
 	static Scanner scanner = new Scanner(System.in);
 	static Cliente cliente = new Cliente();
 	static Principal principal = new Principal();
-	
-	public static void main(String[] args) 
+
+	public static void menuCliente()
 	{
+		System.out.println(" ");
+		System.out.println(" *    MENU CLIENTE    * ");	
+		System.out.println(" 1 - Login");
+		System.out.println(" 2 - Cadastre-se");
 		int op = 0;
 		do 
 		{
-			menu();
-			System.out.println(" ");
-			System.out.print(" Opção: ");
+			System.out.print("\n -> ");
 			op = scanner.nextInt();
-			
 			switch (op) 
 			{
 				case 1:
-					logar();
-					break;
+					System.out.println("\n *    LOGIN    *");
+					System.out.print(" Login: ");
+					String login = scanner.next();
+					System.out.print(" Senha: ");
+					String senha = scanner.next();
+					boolean retorno = controllerCliente.autenticarCliente(login, senha);
+					if(retorno)
+					{
+						System.out.println("\n *   BEM VINDO " + cliente.getNome());
+						System.out.print(" 1 - Fazer Pedido");
+						System.out.print(" 2 - Alterar Dados");
+						int opCliente = scanner.nextInt();
+						switch(opCliente) {
+							case 1 : 
+								
+								break;
+							case 2 :
+								alterarDadosCliente();
+								break;
+						}
+					}
 				case 2 : 
 					cadastrarCliente();
-					break;
-				case 3 :
-					alterarDadosCliente();
-					break;
-				case 4 :
-					principal.getClass();
 					break;
 				default:
 					System.out.println(" Opção não encontrada. ");
 					break;
 			}
 		} 
-		while (op > 0 && op < 4);
-	}
-	
-	public static void menu()
-	{
-		System.out.println(" ");
-		System.out.println(" *    MENU CLIENTE    * ");
-		System.out.println(" 1 - Logar");
-		System.out.println(" 2 - Cadastrar Cliente");
-		System.out.println(" 3 - Alterar Dados Cliente");
-		System.out.println(" 4 - Sair");
+		while (op > 0 && op < 3);
 	}
 	
 	public static void cadastrarCliente()
@@ -63,24 +67,7 @@ public class ClienteView {
 		System.out.print(" Senha: ");
 		cliente.setSenha(scanner.next());
 		controllerCliente.cadastrarCliente(cliente);
-	}
-	
-	public static void logar()
-	{
-		System.out.println(" *    LOGIN    * ");
-		System.out.println(" Login: ");
-		String login = scanner.next();
-		System.out.println(" Senha: ");
-		String senha = scanner.next();
-		boolean retorno = controllerCliente.autenticarCliente(login, senha);
-		if (retorno)
-		{
-			System.out.println("Login encontrado!");
-		}
-		else 
-		{
-			System.out.println("Login ou senha incorretos!");
-		}
+		
 	}
 	
 	public static void alterarDadosCliente()
@@ -103,7 +90,6 @@ public class ClienteView {
 				System.out.print(" Alterado com sucesso! ");
 			}
 			System.out.print(" Senha ou login incorretos! Tente novamente.");
-			menu();
 		}
 	}
 }
