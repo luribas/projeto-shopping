@@ -3,6 +3,7 @@ package br.edu.up.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.up.model.Produto;
 import br.edu.up.model.Restaurante;
 
 public class RestauranteView {
@@ -16,5 +17,14 @@ public class RestauranteView {
 		listaMenu.add(caldeirao);
 		listaMenu.add(tresVassoras);
 		listaMenu.add(cabecaJavali);
+	}
+	
+	public void cardapio() {
+		List<Produto> listaCaldeirao = new ArrayList<>();
+		Produto p1 = new Produto("bla", 30, 1);
+		listaCaldeirao.add(p1);
+		
+		
+		if() {}
 	}
 }

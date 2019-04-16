@@ -4,15 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Produto {
-	String descrição;
+	String nome;
 	double preco;
 	int quant;
 	
-	public String getDescrição() {
-		return descrição;
+	public Produto(String nome, double preco, int quant){
+		this.nome = nome;
+		this.preco = preco;
+		this.quant = quant;
 	}
-	public void setDescrição(String descrição) {
-		this.descrição = descrição;
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public double getPreco() {
 		return preco;
