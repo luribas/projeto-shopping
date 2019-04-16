@@ -4,5 +4,6 @@ public enum TipoPagamento {
 	CartaoDebito,
 	CartaoCredito,
 	Dinheiro,
-	blabla
+	blabla,
+	blabla2
 }
