@@ -7,9 +7,9 @@ import br.edu.up.model.Produto;
 import br.edu.up.model.Restaurante;
 
 public class RestauranteView {
-	static List<Restaurante> listaMenu = new ArrayList<>();
+	List<Restaurante> listaMenu = new ArrayList<Restaurante>();
 	
-	public void restaurantes() {
+	public List<Restaurante> restaurantes() {
 		Restaurante caldeirao = new Restaurante("Caldeirão Furado", "Refeições completas almoço e janta");
 		Restaurante tresVassoras = new Restaurante("Três Vassoras", "Café e guloseimas");
 		Restaurante cabecaJavali = new Restaurante("Cabeça de Javali", "Taverna e Churrascaria");
@@ -17,14 +17,25 @@ public class RestauranteView {
 		listaMenu.add(caldeirao);
 		listaMenu.add(tresVassoras);
 		listaMenu.add(cabecaJavali);
+		
+		return listaMenu;
 	}
 	
-	public void cardapio() {
+	public static void cardapio() {
+		// Cardápio do Caldeirão Furado
 		List<Produto> listaCaldeirao = new ArrayList<>();
-		Produto p1 = new Produto("bla", 30, 1);
-		listaCaldeirao.add(p1);
+		Produto caldeirao1 = new Produto("Caldeirão 1", 40, 2);
+		listaCaldeirao.add(caldeirao1);	
 		
+		// Cardápio do Três Vassoras
+		List<Produto> listaTresVassoras = new ArrayList<>();
+		Produto vassora1 = new Produto("Vassoras", 30, 1);
+		listaTresVassoras.add(vassora1);
 		
-		if() {}
+		// Cardápio do Cabeça de Javali
+		List<Produto> listaJavali = new ArrayList<>();
+		Produto javali1 = new Produto("Javali", 30, 1);
+		listaJavali.add(javali1);
+		
 	}
 }
