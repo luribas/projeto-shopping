@@ -1,19 +1,27 @@
 package br.edu.up.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Produto {
-	String nome;
-	double preco;
-	int quant;
+	private int idProduto;
+	private String nome;
+	private double preco;
+	private int quant;
 	
-	public Produto(String nome, double preco, int quant){
+	// Construtor
+	public Produto(int idProduto, String nome, double preco, int quant){
+		this.idProduto = idProduto;
 		this.nome = nome;
 		this.preco = preco;
 		this.quant = quant;
 	}
 	
+	// Getters e Setters
+	public int getIdProduto() {
+		return idProduto;
+	}
+
+	public void setIdProduto(int idProduto) {
+		this.idProduto = idProduto;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -32,6 +40,4 @@ public class Produto {
 	public void setQuant(int quant) {
 		this.quant = quant;
 	}
-
-	
 }

@@ -1,9 +1,12 @@
 package br.edu.up.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import br.edu.up.controller.ControllerCliente;
 import br.edu.up.model.Cliente;
+import br.edu.up.model.Produto;
+import br.edu.up.model.Restaurante;
 
 public class ClienteView {
 	static Scanner scanner = new Scanner(System.in);
@@ -12,7 +15,7 @@ public class ClienteView {
 	static RestauranteView restauranteView = new RestauranteView();
 	static ControllerCliente controllerCliente = new ControllerCliente();
 
-	public static void menuCliente() {
+	public void menuCliente() {
 		System.out.println("\n *    MENU CLIENTE    * ");	
 		System.out.println(" 1 - Login");
 		System.out.println(" 2 - Cadastre-se");
@@ -40,7 +43,40 @@ public class ClienteView {
 						do {
 							switch(opCliente) {
 								case 1 : 
-									restauranteView.restaurantes();
+									System.out.println(" *    RESTAURANTES    *");
+									List<Restaurante> listaRestaurante = restauranteView.restaurantes();
+									for(int i=0; i<listaRestaurante.size(); i++)
+									{
+										System.out.println("\n"
+														  + listaRestaurante.get(i).getIdRestaurante()
+														  + " - "
+														  + listaRestaurante.get(i).getNome() 
+														  + ":\n    "
+													      + listaRestaurante.get(i).getDetalhes());
+									}
+									System.out.print("\n Digite a opção desejada: " + "\n -> ");
+									int opResta = scanner.nextInt();
+									switch (opResta) {
+										case 1 :
+											List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
+											for(int i=0; i<listaCaldeirao.size(); i++)
+											{
+												System.out.println(listaCaldeirao.get(i).getIdProduto() 
+																 + " - "
+														         + listaCaldeirao.get(i).getNome()
+														         + " / R$"
+																 + listaCaldeirao.get(i).getPreco());
+											}
+											System.out.println(" Deseja qual prato? ");
+											// colocar função de fazer pedido
+											break;
+										case 2 :
+											
+											break;
+										case 3 :
+											
+											break;
+									}
 									break;
 								case 2 :
 									alterarDadosCliente();
@@ -53,6 +89,9 @@ public class ClienteView {
 									break;
 							}
 						} while (opCliente>0 && opCliente<3);
+					} else {
+						System.out.println(" Usuário ou senha incorretos. Tente novamente.");
+						menuCliente();
 					}
 					break;
 				case 2 : 
@@ -65,7 +104,7 @@ public class ClienteView {
 		} 
 		while (op > 0 && op < 2);
 	}
-
+	
 	public static void cadastrarCliente() {
 		System.out.println("\n *    CADASTRAR CLIENTE    * ");
 		System.out.print(" Nome: ");

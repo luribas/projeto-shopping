@@ -7,6 +7,7 @@ public class Pedido {
 	private int numero;
 	private Date data;
 	private String status;
+	private int quantidade;
 	
 	public double getValorTotal() {
 		return valorTotal;
@@ -32,7 +33,10 @@ public class Pedido {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	
+	public int getQuantidade() {
+		return quantidade;
+	}
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 }
