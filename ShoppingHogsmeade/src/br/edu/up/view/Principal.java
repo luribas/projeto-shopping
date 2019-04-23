@@ -12,8 +12,11 @@ public class Principal {
 		menuPrincipal();
 	}
 
+	@SuppressWarnings("static-access")
 	static public void menuPrincipal() {
-		System.out.println("\n *    MENU    *");
+		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" *                   MENU PRINCIPAL                *");
+		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" 1 - Área Administrador");
 		System.out.println(" 2 - Área Cliente");
 		System.out.println(" 3 - Área Cozinha");
@@ -23,7 +26,7 @@ public class Principal {
 		do {
 			switch (opMenu) {
 				case 1:
-					administradorView.getClass();
+					administradorView.menuAdmin();
 					break;
 				case 2:
 					clienteView.menuCliente();

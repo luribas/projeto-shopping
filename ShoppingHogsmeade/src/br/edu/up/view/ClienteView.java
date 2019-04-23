@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import br.edu.up.controller.ControllerCliente;
+import br.edu.up.controller.ControllerPedido;
 import br.edu.up.model.Cliente;
 import br.edu.up.model.Produto;
 import br.edu.up.model.Restaurante;
@@ -14,11 +15,16 @@ public class ClienteView {
 	static Principal principal = new Principal();
 	static RestauranteView restauranteView = new RestauranteView();
 	static ControllerCliente controllerCliente = new ControllerCliente();
+	static ControllerPedido controllerPedido = new ControllerPedido();
 
+	@SuppressWarnings("static-access")
 	public void menuCliente() {
-		System.out.println("\n *    MENU CLIENTE    * ");	
+		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" *                 MENU CLIENTE                    * ");
+		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" 1 - Login");
 		System.out.println(" 2 - Cadastre-se");
+		System.out.println(" 3 - Voltar ao menu principal");
 		System.out.print("\n -> ");
 		int op = scanner.nextInt();
 		do 
@@ -26,7 +32,9 @@ public class ClienteView {
 			switch(op) 
 			{
 				case 1:
-					System.out.println("\n *    LOGIN    *");
+					System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+					System.out.println(" *                  LOGIN                          *");
+					System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 					System.out.print(" Login: ");
 					String login = scanner.next();
 					System.out.print(" Senha: ");
@@ -34,20 +42,23 @@ public class ClienteView {
 					boolean retorno = controllerCliente.autenticarCliente(login, senha);
 					if(retorno)
 					{
-						System.out.println("\n *   BEM VINDO " + cliente.getNome() + "   *");
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *          BEM VINDO " + cliente.getNome() + "    *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						System.out.println(" 1 - Fazer Pedido");
 						System.out.println(" 2 - Alterar Dados");
-						System.out.println(" 3 - Sair");
+						System.out.println(" 3 - Voltar à Área do Cliente");
 						System.out.print("\n -> ");
 						int opCliente = scanner.nextInt();
-						do {
 							switch(opCliente) {
 								case 1 : 
-									System.out.println(" *    RESTAURANTES    *");
+									System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									System.out.println(" *                  RESTAURANTES                   *");
+									System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 									List<Restaurante> listaRestaurante = restauranteView.restaurantes();
 									for(int i=0; i<listaRestaurante.size(); i++)
 									{
-										System.out.println("\n"
+										System.out.println("\n "
 														  + listaRestaurante.get(i).getIdRestaurante()
 														  + " - "
 														  + listaRestaurante.get(i).getNome() 
@@ -56,39 +67,56 @@ public class ClienteView {
 									}
 									System.out.print("\n Digite a opção desejada: " + "\n -> ");
 									int opResta = scanner.nextInt();
-									switch (opResta) {
-										case 1 :
-											List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
-											for(int i=0; i<listaCaldeirao.size(); i++)
-											{
-												System.out.println(listaCaldeirao.get(i).getIdProduto() 
-																 + " - "
-														         + listaCaldeirao.get(i).getNome()
-														         + " / R$"
-																 + listaCaldeirao.get(i).getPreco());
-											}
-											System.out.println(" Deseja qual prato? ");
-											// colocar função de fazer pedido
-											break;
-										case 2 :
-											
-											break;
-										case 3 :
-											
-											break;
-									}
+										switch (opResta) {
+											case 1 :
+												List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
+												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+												System.out.println(" *           CARDÁPIO CALDEIRÃO FURADO             *");
+												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+												
+												System.out.println(" 0 - Finalizar");
+												for(int i=0; i<listaCaldeirao.size(); i++)
+												{
+													System.out.println(" "
+																	 + listaCaldeirao.get(i).getIdProduto() 
+																	 + " - "
+															         + listaCaldeirao.get(i).getNome()
+															         + " / R$"
+																	 + listaCaldeirao.get(i).getPreco());
+												}
+												System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
+												do {
+													System.out.print("\n -> ");
+													int id = scanner.nextInt();
+													if (id == 0) {
+														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
+													} 
+													
+												} while(opResta > 0);
+												break;
+											case 2 :
+												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+												System.out.println(" *              CARDÁPIO TRÊS VASSORAS             *");
+												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+												break;
+											case 3 :
+												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+												System.out.println(" *           CARDÁPIO CABEÇA DE JAVALI             *");
+												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+												break;
+										}
+									
 									break;
 								case 2 :
 									alterarDadosCliente();
-									break;
-								case 3 :
 									menuCliente();
 									break;
+								case 3:
+									menuCliente();
 								default:
 									System.out.println(" Opção inválida.");
 									break;
 							}
-						} while (opCliente>0 && opCliente<3);
 					} else {
 						System.out.println(" Usuário ou senha incorretos. Tente novamente.");
 						menuCliente();
@@ -96,6 +124,9 @@ public class ClienteView {
 					break;
 				case 2 : 
 					cadastrarCliente();
+					break;
+				case 3 :
+					principal.menuPrincipal();
 					break;
 				default:
 					System.out.println(" Opção inválida. ");
@@ -106,7 +137,9 @@ public class ClienteView {
 	}
 	
 	public static void cadastrarCliente() {
-		System.out.println("\n *    CADASTRAR CLIENTE    * ");
+		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" *               CADASTRAR CLIENTE                 * ");
+		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.print(" Nome: ");
 		cliente.setNome(scanner.next());
 		System.out.print(" Login: ");
@@ -117,7 +150,9 @@ public class ClienteView {
 	}
 
 	public static void alterarDadosCliente() {
-		System.out.println("\n *    ALTERAR DADOS DO CLIENTE    * ");
+		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" *              ALTERAR DADOS DO CLIENTE           * ");
+		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.print(" Login: ");
 		String login = scanner.next();
 		System.out.print(" Senha: ");
@@ -132,6 +167,7 @@ public class ClienteView {
 			if (retorno = true) {
 				System.out.print(" Alterado com sucesso! ");
 			}
+		} else {
 			System.out.print(" Senha ou login incorretos! Tente novamente.");
 		}
 	}

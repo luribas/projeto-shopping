@@ -5,12 +5,12 @@ import java.util.List;
 
 import br.edu.up.model.Administrador;
 
-
 public class ControllerAdministrador {
 
 	List<Administrador> listaAdministrador = new ArrayList<Administrador>();
-
-	public void cadastrarAdmin (Administrador administrador){
+	
+	public void cadastrarAdmin(Administrador administrador)
+	{
 		listaAdministrador.add(administrador);
 	}
 	

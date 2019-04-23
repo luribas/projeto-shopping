@@ -1,13 +1,32 @@
 package br.edu.up.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import br.edu.up.enums.StatusPedido;
 
 public class Pedido {
+	private Cliente c = new Cliente();
+	private List<Produto> listaProdPedido  = new ArrayList<>();
 	private double valorTotal;
 	private int numero;
 	private Date data;
-	private String status;
+	private StatusPedido statusPedido;
 	private int quantidade;
+	
+	public Cliente getC() {
+		return c;
+	}
+	public void setC(Cliente c) {
+		this.c = c;
+	}
+	public List<Produto> getListaProdPedido() {
+		return listaProdPedido;
+	}
+	public void setListaProdPedido(List<Produto> listaProdPedido) {
+		this.listaProdPedido = listaProdPedido;
+	}
 	
 	public double getValorTotal() {
 		return valorTotal;
@@ -27,11 +46,11 @@ public class Pedido {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public String getStatus() {
-		return status;
+	public StatusPedido getStatusPedido() {
+		return statusPedido;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatusPedido(StatusPedido statusPedido) {
+		this.statusPedido = statusPedido;
 	}
 	public int getQuantidade() {
 		return quantidade;
