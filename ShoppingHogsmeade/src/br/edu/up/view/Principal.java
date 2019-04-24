@@ -26,7 +26,7 @@ public class Principal {
 		do {
 			switch (opMenu) {
 				case 1:
-					administradorView.menuAdmin();
+					administradorView.loginAdmin();
 					break;
 				case 2:
 					clienteView.menuCliente();

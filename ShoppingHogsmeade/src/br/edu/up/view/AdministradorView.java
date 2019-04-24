@@ -42,16 +42,16 @@ public class AdministradorView {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *                 LOGIN ADMINISTRADOR             *");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" Login: ");
+		System.out.print(" Login: ");
 		String login = scanner.next();
-		System.out.println(" Senha: "); 
+		System.out.print(" Senha: "); 
 		String senha = scanner.next();
 		boolean retorno = controllerAdministrador.autenticarAdmin(login, senha);
-		if (retorno) {
+		if (retorno == true) {
 			menuAdmin();
 		} else {
 			System.out.println(" Usuário ou senha incorretos. Tente novamente.");
-			menuAdmin();
+			loginAdmin();
 		}
 	}
 }
