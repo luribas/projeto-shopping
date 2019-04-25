@@ -25,5 +25,5 @@ public class ControllerAdministrador {
 			}
 		}
 		return valida;
-	}
+	} 
 }

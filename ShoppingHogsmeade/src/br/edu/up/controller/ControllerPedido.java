@@ -1,6 +1,7 @@
 package br.edu.up.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.up.model.Cliente;
@@ -10,6 +11,7 @@ import br.edu.up.model.Produto;
 public class ControllerPedido {
 	private List<Produto> carrinhoCompra;
 	Pedido p = new Pedido();
+	static List<Pedido> listaPedidos = new ArrayList<>();
 	
 	public void cadastrarCarrinhoCompra(Produto p) {
 			carrinhoCompra = new ArrayList<>();
@@ -21,6 +23,15 @@ public class ControllerPedido {
 		p.setC(c);
 		p.setListaProdPedido(carrinhoCompra);	
 		
+		Date hoje = new Date();		
+		p.setData(hoje);
+		double soma = 0;
+		for (int i = 0; i < carrinhoCompra.size(); i++) {
+			soma = soma + carrinhoCompra.get(i).getPreco();
+		}
+		System.out.println("Valor: " + soma + "\n");
+		p.setValorTotal(soma);
 		
+		listaPedidos.add(p);
 	}
 }

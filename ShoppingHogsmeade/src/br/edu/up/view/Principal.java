@@ -32,6 +32,7 @@ public class Principal {
 					clienteView.menuCliente();
 					break;
 				case 3:
+					//cozinha ainda não foi feito
 					cozinhaView.getClass();
 					break;
 				default:

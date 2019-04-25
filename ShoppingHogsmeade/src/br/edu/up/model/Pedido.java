@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.edu.up.enums.StatusPedido;
-
 public class Pedido {
 	private Cliente c = new Cliente();
 	private List<Produto> listaProdPedido  = new ArrayList<>();
 	private double valorTotal;
 	private int numero;
 	private Date data;
-	private StatusPedido statusPedido;
+	private int status;
 	private int quantidade;
 	
 	public Cliente getC() {
@@ -46,11 +44,11 @@ public class Pedido {
 	public void setData(Date data) {
 		this.data = data;
 	}
-	public StatusPedido getStatusPedido() {
-		return statusPedido;
+	public int getStatus() {
+		return status;
 	}
-	public void setStatusPedido(StatusPedido statusPedido) {
-		this.statusPedido = statusPedido;
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	public int getQuantidade() {
 		return quantidade;
