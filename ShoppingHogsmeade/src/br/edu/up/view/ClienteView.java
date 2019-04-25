@@ -88,8 +88,14 @@ public class ClienteView {
 												do {
 													System.out.print("\n -> ");
 													int id = scanner.nextInt();
-													if (id == 0) {
+													if (id == 3) {
 														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
+														controllerPedido.finalizarPedido(cliente);
+														System.out.println(controllerPedido.listaDePedidos()
+																						   .get(controllerPedido.listaDePedidos()
+																						   .size()-1)
+																						   .getC()
+																						   .getNome());
 													} 
 													
 												} while(opResta > 0);

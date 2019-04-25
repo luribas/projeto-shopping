@@ -22,6 +22,7 @@ public class ControllerPedido {
 		Pedido p = new Pedido();
 		p.setC(c);
 		p.setListaProdPedido(carrinhoCompra);	
+		p.setStatus(0);
 		
 		Date hoje = new Date();		
 		p.setData(hoje);
@@ -33,5 +34,9 @@ public class ControllerPedido {
 		p.setValorTotal(soma);
 		
 		listaPedidos.add(p);
+	}
+	
+	public List<Pedido> listaDePedidos() {
+		return listaPedidos;
 	}
 }
