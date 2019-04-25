@@ -90,7 +90,7 @@ public class ClienteView {
 												int id;
 												do {
 													System.out.print("\n -> ");
-													 id = scanner.nextInt();
+													id = scanner.nextInt();
 													if (id != 0) {
 														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
 										
@@ -150,7 +150,7 @@ public class ClienteView {
 					break;
 			}
 		} 
-		while (op > 0 && op < 2);
+		while (op > 0 && op < 3);
 	}
 	
 	public static void cadastrarCliente() {
