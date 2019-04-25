@@ -75,6 +75,7 @@ public class ClienteView {
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												
 												System.out.println(" 0 - Finalizar");
+												System.out.println(" 99 - Sair");
 												for(int i=0; i<listaCaldeirao.size(); i++)
 												{
 													System.out.println(" "
@@ -85,21 +86,24 @@ public class ClienteView {
 																	 + listaCaldeirao.get(i).getPreco());
 												}
 												System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
-												do {
-													System.out.print("\n -> ");
-													int id = scanner.nextInt();
-													if (id == 3) {
-														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
-														controllerPedido.finalizarPedido(cliente);
-														System.out.println(controllerPedido.listaDePedidos()
-																						   .get(controllerPedido.listaDePedidos()
-																						   .size()-1)
-																						   .getC()
-																						   .getNome());
-													} 
-													
-												} while(opResta > 0);
-												break;
+											
+												
+												
+//												do {
+//													System.out.print("\n -> ");
+//													int id = scanner.nextInt();
+//													if (id == 0) {
+//														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
+//														controllerPedido.finalizarPedido(cliente);
+//														System.out.println(controllerPedido.listaDePedidos()
+//																						   .get(controllerPedido.listaDePedidos()
+//																						   .size()-1)
+//																						   .getC()
+//																						   .getNome());
+//													} 
+//													
+//												} while(opResta > 0);
+//												break;
 											case 2 :
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												System.out.println(" *              CARDÁPIO TRÊS VASSORAS             *");
