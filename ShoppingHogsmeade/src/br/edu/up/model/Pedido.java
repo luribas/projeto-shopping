@@ -11,7 +11,6 @@ public class Pedido {
 	private int numero;
 	private Date data;
 	private int status;
-	private int quantidade;
 	
 	public Cliente getC() {
 		return c;
@@ -50,10 +49,5 @@ public class Pedido {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public int getQuantidade() {
-		return quantidade;
-	}
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
+
 }
