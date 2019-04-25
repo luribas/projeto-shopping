@@ -19,16 +19,18 @@ public class ClienteView {
 
 	@SuppressWarnings("static-access")
 	public void menuCliente() {
-		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" *                 MENU CLIENTE                    * ");
-		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" 1 - Login");
-		System.out.println(" 2 - Cadastre-se");
-		System.out.println(" 3 - Voltar ao menu principal");
-		System.out.print("\n -> ");
-		int op = scanner.nextInt();
+		
+		int op;
 		do 
 		{
+			System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+			System.out.println(" *                 MENU CLIENTE                    * ");
+			System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+			System.out.println(" 1 - Login");
+			System.out.println(" 2 - Cadastre-se");
+			System.out.println(" 3 - Voltar ao menu principal");
+			System.out.print("\n -> ");
+			 op = scanner.nextInt();
 			switch(op) 
 			{
 				case 1:
@@ -85,20 +87,25 @@ public class ClienteView {
 																	 + listaCaldeirao.get(i).getPreco());
 												}
 												System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
+												int id;
 												do {
 													System.out.print("\n -> ");
-													int id = scanner.nextInt();
-													if (id == 3) {
+													 id = scanner.nextInt();
+													if (id != 0) {
 														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
-														controllerPedido.finalizarPedido(cliente);
-														System.out.println(controllerPedido.listaDePedidos()
-																						   .get(controllerPedido.listaDePedidos()
-																						   .size()-1)
-																						   .getC()
-																						   .getNome());
+														
+														
 													} 
 													
-												} while(opResta > 0);
+												} while(id > 0);
+												if (controllerPedido.listaDePedidos().size() > 0) {
+													controllerPedido.finalizarPedido(cliente);
+													System.out.println(controllerPedido.listaDePedidos()
+															   .get(controllerPedido.listaDePedidos()
+															   .size()-1)
+															   .getC()
+															   .getNome());
+												}
 												break;
 											case 2 :
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
