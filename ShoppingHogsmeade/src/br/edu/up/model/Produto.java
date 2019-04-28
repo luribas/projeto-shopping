@@ -4,14 +4,12 @@ public class Produto {
 	private int idProduto;
 	private String nome;
 	private double preco;
-	private int quant;
 	
 	// Construtor
-	public Produto(int idProduto, String nome, double preco, int quant){
+	public Produto(int idProduto, String nome, double preco){
 		this.idProduto = idProduto;
 		this.nome = nome;
 		this.preco = preco;
-		this.quant = quant;
 	}
 	
 	// Getters e Setters
@@ -33,11 +31,5 @@ public class Produto {
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;
-	}
-	public int getQuant() {
-		return quant;
-	}
-	public void setQuant(int quant) {
-		this.quant = quant;
 	}
 }
