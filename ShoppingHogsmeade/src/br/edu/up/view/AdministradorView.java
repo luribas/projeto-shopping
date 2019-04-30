@@ -55,7 +55,7 @@ public class AdministradorView {
 		}
 	}
 }
-
+ 
 //int id;
 //do {
 //	System.out.print("\n -> ");
