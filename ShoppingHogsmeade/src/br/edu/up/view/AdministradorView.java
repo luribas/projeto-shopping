@@ -65,7 +65,7 @@ public class AdministradorView {
 //						lista de pedidos STATUS - EM ABERTO caldeirao
 //						filtrar lista por restaurante e status
 //						for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ){
-//						   printar lista de pedido com cliente, produto, quantidade, SENHA e valor total por pedido
+//						   printar lista de pedido com cliente, produto, quantidade, SENHA (numero) e valor total por pedido
 //						 }
 						break;
 					case 2:
