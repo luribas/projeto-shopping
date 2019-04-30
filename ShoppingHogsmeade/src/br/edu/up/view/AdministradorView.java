@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package br.edu.up.view;
 
 import java.util.Scanner;
