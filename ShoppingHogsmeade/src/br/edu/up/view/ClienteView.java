@@ -93,15 +93,12 @@ public class ClienteView {
 													id = scanner.nextInt();
 													if (id != 0) {
 														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
-														for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ) {
-															controllerPedido.finalizarPedido(cliente);
-														}
 													}
 												} while(id > 0);
 												if (controllerPedido.listaDePedidos().size() > 0) {
 													System.out.println("entra no if");
 													for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ) {
-														
+														controllerPedido.finalizarPedido(cliente);
 														System.out.println("Produdo: " + controllerPedido.listaDePedidos()
 																   .get(controllerPedido.listaDePedidos()
 																   .size()-1).getListaProdPedido().get(0).getNome()
