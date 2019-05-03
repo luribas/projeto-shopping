@@ -1,7 +1,8 @@
 package br.edu.up.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import br.edu.up.model.Cliente;
@@ -21,9 +22,12 @@ public class ControllerPedido {
 		p.setC(c);
 		p.setListaProdPedido(carrinhoCompra);	
 		p.setStatus(1);
+		                                                           
+		Calendar data = Calendar.getInstance();   
 		
-		Date hoje = new Date();
-		p.setData(hoje);
+		String dataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(data.getTime());
+		p.setData(dataFormatada);    
+		
 		double soma = 0;
 		for (int i = 0; i < carrinhoCompra.size(); i++) {
 			soma = soma + carrinhoCompra.get(i).getPreco();
@@ -37,12 +41,12 @@ public class ControllerPedido {
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		for (int i = 0; i < listaDePedidos().size(); i++ ) {
 			System.out.println("\n " 
-		    + p.getData() 
+		    + " Data do pedido: " + p.getData()
 		    + "\n\n "
-			+ listaDePedidos().get(listaDePedidos().size()-1).getListaProdPedido().get(i).getNome()
+			+ " " + listaDePedidos().get(listaDePedidos().size()-1).getListaProdPedido().get(i).getNome()
 			+ " / R$"
 			+ listaDePedidos().get(listaDePedidos().size()-1).getListaProdPedido().get(i).getPreco()
-			+ "\n -> Valor total: R$" + soma); 
+			+ "\n  -> Valor total: R$" + soma); 
 		}
 	}
 	

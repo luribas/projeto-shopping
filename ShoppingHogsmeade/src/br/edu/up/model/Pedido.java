@@ -1,7 +1,6 @@
 package br.edu.up.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Pedido {
@@ -9,7 +8,7 @@ public class Pedido {
 	private List<Produto> listaProdPedido  = new ArrayList<>();
 	private double valorTotal;
 	private int numero;
-	private Date data;
+	private String data;
 	private int status;
 	
 	public Cliente getC() {
@@ -37,10 +36,10 @@ public class Pedido {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	public int getStatus() {
