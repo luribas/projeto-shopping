@@ -39,15 +39,19 @@ public class ControllerPedido {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *                 NOTA FISCAL                     *");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println("   Data do pedido: " + p.getData());
+		System.out.print("\n  ");
 		for (int i = 0; i < listaDePedidos().size(); i++ ) {
-			System.out.println("\n " 
-		    + " Data do pedido: " + p.getData()
-		    + "\n\n "
-			+ " " + listaDePedidos().get(listaDePedidos().size()-1).getListaProdPedido().get(i).getNome()
-			+ " / R$"
-			+ listaDePedidos().get(listaDePedidos().size()-1).getListaProdPedido().get(i).getPreco()
-			+ "\n  -> Valor total: R$" + soma); 
+			for (int j = 0; j < listaDePedidos().get(i).getListaProdPedido().size(); i++) {
+				System.out.println("  - "
+						+ listaDePedidos().get(i).getListaProdPedido().get(j).getNome()
+						+ " / R$"
+						+ listaDePedidos().get(i).getListaProdPedido().get(j).getPreco()); 
+			}
+			
+			
 		}
+		System.out.println("\n   -> Valor total: R$" + soma);
 	}
 	
 	public List<Pedido> listaDePedidos() {

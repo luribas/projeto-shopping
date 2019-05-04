@@ -19,7 +19,6 @@ public class ClienteView {
 
 	@SuppressWarnings("static-access")
 	public void menuCliente() {
-		
 		int op;
 		do 
 		{
@@ -73,11 +72,10 @@ public class ClienteView {
 									int opResta = scanner.nextInt();
 										switch (opResta) {
 											case 1 :
-												List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												System.out.println(" *           CARDÁPIO CALDEIRÃO FURADO             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												
+												List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
 												System.out.println(" 0 - Finalizar");
 												for(int i=0; i<listaCaldeirao.size(); i++)
 												{
@@ -98,15 +96,9 @@ public class ClienteView {
 													}
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente);
-												if (controllerPedido.listaDePedidos().size() > 0) {
-													System.out.println("entra no if");
-													for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ) {
-														controllerPedido.finalizarPedido(cliente);
-														System.out.println("Produdo: " + controllerPedido.listaDePedidos()
-																   .get(controllerPedido.listaDePedidos()
-																   .size()-1).getListaProdPedido().get(0).getNome()
-																   + "\n Valor: R$ "); 
-													}
+												if (
+													controllerPedido.listaDePedidos().size() > 0) {
+
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -134,9 +126,9 @@ public class ClienteView {
 														controllerPedido.cadastrarCarrinhoCompra(listaVassoras.get(id-1));
 													}
 												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente);
+												
 												if (controllerPedido.listaDePedidos().size() > 0) {
-													
+													controllerPedido.finalizarPedido(cliente);
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
