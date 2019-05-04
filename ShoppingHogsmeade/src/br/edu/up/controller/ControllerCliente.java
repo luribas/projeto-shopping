@@ -24,6 +24,8 @@ public class ControllerCliente {
 		for (int i = 0; i < listaCliente.size(); i++) 
 		{
 			if(listaCliente.get(i).getLogin().equals(login) && listaCliente.get(i).getSenha().equals(senha))
+			if(listaCliente.get(i).getLogin().equals(login) && listaCliente.get(i).getSenha().equals(senha) ||
+					listaCliente.get(i).getEmail().equals(login) && listaCliente.get(i).getSenha().equals(senha)	)
 			{
 				valida = true;
 				break;

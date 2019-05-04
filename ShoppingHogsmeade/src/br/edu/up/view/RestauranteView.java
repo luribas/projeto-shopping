@@ -51,7 +51,7 @@ public class RestauranteView {
 		Produto ovos = new Produto(6, "Ovos (2 ovos)", 2);
 		Produto sucos = new Produto(7, "Sucos", 5);
 		Produto bolo = new Produto(8, "Bolo de chocolate", 5.50);
-		Produto pao = new Produto(8, "Pão de queijo (5 unidades)", 5);
+		Produto pao = new Produto(9, "Pão de queijo (5 unidades)", 5);
 		listaTresVassoras.add(cafeP);
 		listaTresVassoras.add(cafeM);
 		listaTresVassoras.add(cafeG);
