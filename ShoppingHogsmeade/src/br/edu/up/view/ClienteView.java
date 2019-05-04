@@ -99,7 +99,6 @@ public class ClienteView {
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente);
 												if (controllerPedido.listaDePedidos().size() > 0) {
-<<<<<<< HEAD
 													System.out.println("entra no if");
 													for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ) {
 														controllerPedido.finalizarPedido(cliente);
@@ -108,13 +107,8 @@ public class ClienteView {
 																   .size()-1).getListaProdPedido().get(0).getNome()
 																   + "\n Valor: R$ "); 
 													}
-												}else {
-													System.out.println("LISTA NULA!");
-=======
-													
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
->>>>>>> 1fa4bc3152a90fa8c97d2f65f92e6a428a856a10
 												}
 												break;
 											case 2 :
