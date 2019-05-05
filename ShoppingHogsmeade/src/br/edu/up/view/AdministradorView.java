@@ -16,8 +16,7 @@ public class AdministradorView {
 		System.out.println(" *              MENU ADMINISTRADOR                 *");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" 1 - Ver pedidos");
-		System.out.println(" 2 - Cozinha");
-		System.out.println(" 3 - Voltar ao Menu Principal");
+		System.out.println(" 2 - Voltar ao Menu Principal");
 		System.out.print("\n -> ");
 		int opAdmin = scanner.nextInt();
 		switch(opAdmin) {
@@ -28,7 +27,7 @@ public class AdministradorView {
 				System.out.println(" 1 - Caldeirão Furado");
 				System.out.println(" 2 - Três Vassouras");
 				System.out.println(" 3 - Cabeça de Javali");
-				System.out.println(" 4 - Voltar ao Menu Aministrador");
+				System.out.println(" 4 - Voltar ao Menu Administrador");
 				System.out.print("\n -> ");
 				int rest = scanner.nextInt(); 
 				switch (rest)
@@ -48,37 +47,11 @@ public class AdministradorView {
 				}
 				break;
 			case 2 :
-				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-				System.out.println(" *              SELECIONE RESTAURANTE              *");
-				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-				System.out.println(" 1 - Caldeirão Furado");
-				System.out.println(" 2 - Três Vassouras");
-				System.out.println(" 3 - Cabeça de Javali");
-				System.out.println(" 4 - Voltar ao Menu Aministrador");
-				System.out.print("\n -> ");
-				int rest2 = scanner.nextInt(); 
-				switch (rest2)
-				{
-					case 1: 
-//						lista de pedidos STATUS - EM ABERTO caldeirao
-//						filtrar lista por restaurante e status
-//						for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ){
-//						   printar lista de pedido com cliente, produto, quantidade, SENHA (numero) e valor total por pedido
-//						 }
-						break;
-					case 2:
-//						 lista de pedidos STATUS - EM ABERTO  tres vassouras;
-						break;
-					case 3:
-//						 lista de pedidos STATUS - EM ABERTO  cabeça de javali;
-				}
-				break;
-			case 3 :
 				principal.menuPrincipal();
 				break;
 			default :
 				System.out.println(" Opção inválida. Tente novamente.");
-				menuAdmin();
+				break;
 		}
 	}
 	
@@ -97,7 +70,6 @@ public class AdministradorView {
 			menuAdmin();
 		} else {
 			System.out.println(" Usuário ou senha incorretos. Tente novamente.");
-			loginAdmin();
 		}
 	}
 }

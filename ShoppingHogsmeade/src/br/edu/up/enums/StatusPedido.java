@@ -1,16 +1,8 @@
 package br.edu.up.enums;
 
 public enum StatusPedido {
-	AguardandoPagamento,
-	EmAberto, 
-	Finalizado
+	AguardandoPagamento, //atualiza quando confirma - admin altera
+	EmAberto, // cozinha tem acesso para preparar (já foi pago)
+	Pronto, //cozinha atualiza - envia a senha para retirada
+	Finalizado // restaurante (admin) atualiza quando o cliente retirar
 }
-//aguardando pgto
-//aberto
-//pronto
-//finalizado
-//
-// aguardando pgto - atualiza qdo confirma - admin altera
-// aberto -cozinha tem acesso para preparar 
-// pronto - cozinha atualiza - envia a senha para retirada
-// finalizado - restaurante (admin) atualiza qdo o cliente retirar

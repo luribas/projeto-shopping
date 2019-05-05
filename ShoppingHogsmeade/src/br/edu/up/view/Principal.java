@@ -32,8 +32,7 @@ public class Principal {
 					clienteView.menuCliente();
 					break;
 				case 3:
-					//cozinha ainda não foi feito
-					cozinhaView.getClass();
+					cozinhaView.loginCozinha();
 					break;
 				default:
 					System.out.println("\n Opção inválida. Tente novamente.");

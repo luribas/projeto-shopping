@@ -4,7 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Scanner;
 
+import br.edu.up.enums.StatusPedido;
+import br.edu.up.model.Cartao;
 import br.edu.up.model.Cliente;
 import br.edu.up.model.Pedido;
 import br.edu.up.model.Produto;
@@ -13,6 +16,8 @@ public class ControllerPedido {
 	private List<Produto> carrinhoCompra = new ArrayList<>();
 	Pedido p = new Pedido();
 	static List<Pedido> listaPedidos = new ArrayList<>();
+	static Scanner scanner = new Scanner(System.in);
+	static Cartao cartao = new Cartao();
 	
 	public void cadastrarCarrinhoCompra(Produto p) {
 		carrinhoCompra.add(p);
@@ -21,10 +26,9 @@ public class ControllerPedido {
 	public void finalizarPedido(Cliente c) {
 		p.setC(c);
 		p.setListaProdPedido(carrinhoCompra);	
-		p.setStatus(1);
+		p.setStatus(StatusPedido.EmAberto);
 		                                                           
-		Calendar data = Calendar.getInstance();   
-		
+		Calendar data = Calendar.getInstance();
 		String dataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(data.getTime());
 		p.setData(dataFormatada);    
 		
@@ -41,20 +45,59 @@ public class ControllerPedido {
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println("   Data do pedido: " + p.getData());
 		System.out.print("\n  ");
-		for (int i = 0; i < listaDePedidos().size(); i++ ) {
-			for (int j = 0; j < listaDePedidos().get(i).getListaProdPedido().size(); i++) {
-				System.out.println("  - "
-						+ listaDePedidos().get(i).getListaProdPedido().get(j).getNome()
-						+ " / R$"
-						+ listaDePedidos().get(i).getListaProdPedido().get(j).getPreco()); 
-			}
-			
-			
-		}
-		System.out.println("\n   -> Valor total: R$" + soma);
+//		for (int i = 0; i < listaDePedidos().size(); i++ ) {
+//			System.out.println("  - "
+//			+ listaDePedidos().get(i).getListaProdPedido().get(i).getNome()
+//			+ " / R$"
+//			+ listaDePedidos().get(i).getListaProdPedido().get(i).getPreco()); 
+//		}
+		System.out.println("  -> Valor total: R$" + soma);
 	}
 	
 	public List<Pedido> listaDePedidos() {
 		return listaPedidos;
+	}
+	
+	public void fazerPagamento(Cliente c) {
+		p.setC(c);
+		p.setListaProdPedido(carrinhoCompra);	
+		System.out.println(" Escolha o tipo de pagamento: ");
+		System.out.println(" 1 - Cartão de Débito");
+		System.out.println(" 2 - Cartã de Crédito");
+		System.out.println(" 3 - Dinheiro");
+		int opPagamento = scanner.nextInt();
+		switch (opPagamento) {
+			case 1 :
+				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+				System.out.println(" *           PAGAMENTO CARTÃO DE CRÉDITO           *");
+				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+				System.out.println("Valor a pagar: " + p.getValorTotal());
+				System.out.println(" Número do cartão: ");
+				long numeroCartao = scanner.nextLong();
+				cartao.setNumero(numeroCartao);
+				System.out.println(" CVV: ");
+				int cvv = scanner.nextInt();
+				cartao.setCvv(cvv);
+				p.setStatus(StatusPedido.EmAberto);
+				break;
+			case 2 :
+				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+				System.out.println(" *         PAGAMENTO CARTÃO DE DÉBITO              *");
+				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+				System.out.println(" Favor pagar na hora de pegar o pedido.");
+				p.setStatus(StatusPedido.EmAberto);
+				break;
+			case 3 :
+				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+				System.out.println(" *              PAGAMENTO DINHEIRO                 *");
+				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+				System.out.println(" Favor pagar na hora de pegar o pedido.");
+				p.setStatus(StatusPedido.EmAberto);
+				break;
+			default:
+				System.out.println(" Opção inválida. Tente Novamente.");
+				break;
+		}
+		p.setStatus(StatusPedido.EmAberto);
 	}
 }

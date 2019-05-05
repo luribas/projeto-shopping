@@ -21,6 +21,7 @@ public class ClienteView {
 	public void menuCliente() {
 		int op;
 		do 
+			
 		{
 			System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 			System.out.println(" *                 MENU CLIENTE                    * ");
@@ -96,9 +97,8 @@ public class ClienteView {
 													}
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente);
-												if (
-													controllerPedido.listaDePedidos().size() > 0) {
-
+												if (controllerPedido.listaDePedidos().size() > 0) {
+													System.out.println(" Pedido realizado com sucesso! ");
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -126,9 +126,9 @@ public class ClienteView {
 														controllerPedido.cadastrarCarrinhoCompra(listaVassoras.get(id-1));
 													}
 												} while(id > 0);
-												
+												controllerPedido.finalizarPedido(cliente);
 												if (controllerPedido.listaDePedidos().size() > 0) {
-													controllerPedido.finalizarPedido(cliente);
+													System.out.println(" Pedido realizado com sucesso! ");
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -158,7 +158,7 @@ public class ClienteView {
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente);
 												if (controllerPedido.listaDePedidos().size() > 0) {
-													
+													System.out.println(" Pedido realizado com sucesso! ");
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -167,7 +167,6 @@ public class ClienteView {
 									break;
 								case 2 :
 									alterarDadosCliente();
-									menuCliente();
 									break;
 								case 3 :
 									visualizarDadosCliente();
@@ -229,7 +228,7 @@ public class ClienteView {
 		String senha = scanner.next();
 		boolean retorno = controllerCliente.autenticarCliente(login, senha);
 		if (retorno) {
-			System.out.print(" Nome: ");
+			System.out.print("\n Nome: ");
 			cliente.setNome(scanner.next());
 			System.out.print(" Sobrenome: ");
 			cliente.setSobrenome(scanner.next());
@@ -245,7 +244,7 @@ public class ClienteView {
 			cliente.setSenha(scanner.next());
 			controllerCliente.autenticarCliente(login, senha);
 			if (retorno = true) {
-				System.out.print(" Alterado com sucesso! ");
+				System.out.print("\n Alterado com sucesso! ");
 			}
 		} else {
 			System.out.print(" Senha ou login incorretos! Tente novamente.");

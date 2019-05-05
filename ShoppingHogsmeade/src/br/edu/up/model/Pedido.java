@@ -3,13 +3,15 @@ package br.edu.up.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.up.enums.StatusPedido;
+
 public class Pedido {
 	private Cliente c = new Cliente();
 	private List<Produto> listaProdPedido  = new ArrayList<>();
 	private double valorTotal;
-	private int numero;
+	private int senha;
 	private String data;
-	private int status;
+	private StatusPedido status;
 	
 	public Cliente getC() {
 		return c;
@@ -30,11 +32,11 @@ public class Pedido {
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	public int getNumero() {
-		return numero;
+	public int getSenha() {
+		return senha;
 	}
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setSenhao(int senha) {
+		this.senha = senha;
 	}
 	public String getData() {
 		return data;
@@ -42,11 +44,10 @@ public class Pedido {
 	public void setData(String data) {
 		this.data = data;
 	}
-	public int getStatus() {
+	public StatusPedido getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(StatusPedido status) {
 		this.status = status;
 	}
-
 }
