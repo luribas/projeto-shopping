@@ -15,7 +15,7 @@ import br.edu.up.model.Produto;
 public class ControllerPedido {
 	private List<Produto> carrinhoCompra = new ArrayList<>();
 	Pedido p = new Pedido();
-	static List<Pedido> listaPedidos = new ArrayList<>();
+	public static List<Pedido> listaPedidos = new ArrayList<>();
 	static Scanner scanner = new Scanner(System.in);
 	static Cartao cartao = new Cartao();
 	
@@ -23,10 +23,11 @@ public class ControllerPedido {
 		carrinhoCompra.add(p);
 	}
 	
-	public void finalizarPedido(Cliente c) {
+	public void finalizarPedido(Cliente c, String r) {
 		p.setC(c);
 		p.setListaProdPedido(carrinhoCompra);	
 		p.setStatus(StatusPedido.EmAberto);
+		p.setRestaurante(r);
 		                                                           
 		Calendar data = Calendar.getInstance();
 		String dataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(data.getTime());

@@ -3,12 +3,17 @@ package br.edu.up.view;
 import java.util.Scanner;
 
 import br.edu.up.controller.ControllerAdministrador;
+import br.edu.up.controller.ControllerCliente;
+import br.edu.up.controller.ControllerPedido;
 import br.edu.up.model.Administrador;
+import br.edu.up.model.Cliente;
 
 public class AdministradorView {
 	static ControllerAdministrador controllerAdministrador = new ControllerAdministrador();
+	static ControllerPedido controllerPedido = new ControllerPedido();
 	static Scanner scanner = new Scanner(System.in);
-	static Principal principal = new Principal();	
+	static Principal principal = new Principal();
+	
 	
 	@SuppressWarnings("static-access")
 	public static void menuAdmin() {
@@ -33,11 +38,20 @@ public class AdministradorView {
 				switch (rest)
 				{
 					case 1: 
-//						 lista de pedidos caldeirao
-//						 filtrar lista por restaurante				
-//						for (int i = 0; i < LISTA FILTRADA.size(); i++ ){
-//						   printar lista de pedidos com cliente, produto, quantidade e valor total por pedido
-//						 }
+						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
+								System.out.println("Produtos:" + controllerPedido.listaPedidos.get(i).getListaProdPedido());
+								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData());
+								System.out.println("");
+							}
+	//						+ listaVassoras.get(i).getIdProduto() 
+	
+							//lista de pedidos caldeirao
+	//						 filtrar lista por restaurante				
+	//						for (int i = 0; i < LISTA FILTRADA.size(); i++ ){
+	//						   printar lista de pedidos com cliente, produto, quantidade e valor total por pedido
+	//						 }
+						}
 						break;
 					case 2:
 //						 lista de pedidos tres vassouras;

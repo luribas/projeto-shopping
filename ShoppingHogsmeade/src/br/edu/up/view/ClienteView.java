@@ -73,6 +73,7 @@ public class ClienteView {
 									int opResta = scanner.nextInt();
 										switch (opResta) {
 											case 1 :
+												String rest = "caldeirao";
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												System.out.println(" *           CARDÁPIO CALDEIRÃO FURADO             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
@@ -96,7 +97,7 @@ public class ClienteView {
 														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
 													}
 												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente);
+												controllerPedido.finalizarPedido(cliente, rest);
 												if (controllerPedido.listaDePedidos().size() > 0) {
 													System.out.println(" Pedido realizado com sucesso! ");
 												} else {
@@ -104,6 +105,7 @@ public class ClienteView {
 												}
 												break;
 											case 2 :
+												String rest2 = "tres";
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												System.out.println(" *              CARDÁPIO TRÊS VASSORAS             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
@@ -126,7 +128,7 @@ public class ClienteView {
 														controllerPedido.cadastrarCarrinhoCompra(listaVassoras.get(id-1));
 													}
 												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente);
+												controllerPedido.finalizarPedido(cliente, rest2);
 												if (controllerPedido.listaDePedidos().size() > 0) {
 													System.out.println(" Pedido realizado com sucesso! ");
 												} else {
@@ -134,6 +136,7 @@ public class ClienteView {
 												}
 												break;
 											case 3 :
+												String rest3 = "javali";
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												System.out.println(" *           CARDÁPIO CABEÇA DE JAVALI             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
@@ -156,7 +159,7 @@ public class ClienteView {
 														controllerPedido.cadastrarCarrinhoCompra(listaJavali.get(id-1));
 													}
 												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente);
+												controllerPedido.finalizarPedido(cliente, rest3);
 												if (controllerPedido.listaDePedidos().size() > 0) {
 													System.out.println(" Pedido realizado com sucesso! ");
 												} else {

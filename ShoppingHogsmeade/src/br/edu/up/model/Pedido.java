@@ -12,7 +12,17 @@ public class Pedido {
 	private int senha;
 	private String data;
 	private StatusPedido status;
+	private String restaurante;
 	
+	public String getRestaurante() {
+		return restaurante;
+	}
+	public void setRestaurante(String restaurante) {
+		this.restaurante = restaurante;
+	}
+	public void setSenha(int senha) {
+		this.senha = senha;
+	}
 	public Cliente getC() {
 		return c;
 	}
