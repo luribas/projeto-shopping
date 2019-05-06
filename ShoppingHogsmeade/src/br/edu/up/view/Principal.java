@@ -22,7 +22,13 @@ public class Principal {
 		System.out.println(" 3 - Área Cozinha");
 		System.out.print("\n -> ");
 		int opMenu = 0;
-		opMenu = scanner.nextInt();
+		try {
+			opMenu = scanner.nextInt();
+		}
+		catch (Exception e) {
+			System.out.println("\n Apenas números são aceitos na escolha de Área. ");
+			menuPrincipal();
+		}
 		do {
 			switch (opMenu) {
 				case 1:
