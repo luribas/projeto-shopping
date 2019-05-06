@@ -1,5 +1,7 @@
 package br.edu.up.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import br.edu.up.controller.ControllerCozinha;
@@ -14,6 +16,7 @@ public class CozinhaView {
 	static ControllerPedido controllerPedido = new ControllerPedido();
 	static ControllerCozinha controllerCozinha = new ControllerCozinha();
 	static Scanner scanner = new Scanner(System.in);
+	static List<Pedido> listaPedidos = new ArrayList<>();
 	
 	@SuppressWarnings("static-access")
 	public static void menuCozinha() {
@@ -23,8 +26,9 @@ public class CozinhaView {
 		System.out.println(" 1 - Ver pedidos");
 		System.out.println(" 2 - Voltar ao Menu Principal");
 		System.out.print("\n -> ");
-		int opAdmin = scanner.nextInt();
-		switch(opAdmin) {
+		int opCozinha = 0;
+		opCozinha = scanner.nextInt();
+		switch(opCozinha) {
 			case 1 : 
 				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				System.out.println(" *              SELECIONE RESTAURANTE              *");
@@ -34,10 +38,19 @@ public class CozinhaView {
 				System.out.println(" 3 - Cabeça de Javali");
 				System.out.println(" 4 - Voltar ao Menu da Cozinha");
 				System.out.print("\n -> ");
-				int rest2 = scanner.nextInt(); 
-				switch (rest2)
+				int restOpcao = 0;
+				restOpcao = scanner.nextInt(); 
+				switch (restOpcao)
 				{
 					case 1: 
+						Pedido p = new Pedido();
+						if(p.getStatus() == StatusPedido.EmAberto) {
+							for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++) {
+								System.out.println("  - " + controllerPedido.listaDePedidos().get(i).getC().getNome());
+							}
+						} else {
+							System.out.println("\n Não foi possível ver os pedidos em aberto. Tente novamente. ");
+						}
 //						lista de pedidos STATUS - EM ABERTO caldeirao
 //						filtrar lista por restaurante e status
 //						for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ){
@@ -49,6 +62,13 @@ public class CozinhaView {
 						break;
 					case 3:
 //						 lista de pedidos STATUS - EM ABERTO  cabeça de javali;
+						break;
+					case 4 :
+						menuCozinha();
+						break;
+					default:
+						System.out.println(" Opção inválida. Tente novamente.");
+						break;
 				}
 				break;
 			case 2 :
