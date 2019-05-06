@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import br.edu.up.controller.ControllerCliente;
 import br.edu.up.controller.ControllerPedido;
+import br.edu.up.model.Administrador;
 import br.edu.up.model.Cliente;
 import br.edu.up.model.Produto;
 import br.edu.up.model.Restaurante;
