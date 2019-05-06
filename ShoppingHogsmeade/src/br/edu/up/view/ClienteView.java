@@ -50,8 +50,9 @@ public class ClienteView {
 					boolean retorno = controllerCliente.autenticarCliente(login, senha);
 					if(retorno)
 					{
+						String header=login.toUpperCase();  
 						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-						System.out.println("              BEM VINDO(A) " + cliente.getNome());
+						System.out.println("              BEM VINDO(A) " + header);
 						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						System.out.println(" 1 - Fazer Pedido");
 						System.out.println(" 2 - Alterar Dados");
@@ -278,7 +279,7 @@ public class ClienteView {
 				System.out.println(" Telefone: " + controllerCliente.listaCliente.get(i).getTelefone());
 				System.out.println(" CPF: " + controllerCliente.listaCliente.get(i).getCpf());
 				System.out.println(" Login: " + login);
-				System.out.println(" Senha: " + controllerCliente.listaCliente.get(i).getSenha());
+				System.out.print(" Senha: " + controllerCliente.listaCliente.get(i).getSenha());
 			}
 		}
 		
