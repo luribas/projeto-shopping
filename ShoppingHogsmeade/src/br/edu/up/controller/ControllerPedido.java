@@ -76,8 +76,8 @@ public class ControllerPedido {
 				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				System.out.println(" *           PAGAMENTO CARTÃO DE CRÉDITO           *");
 				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-				System.out.println(" Valor total a pagar: " + p.getValorTotal());
-				System.out.println(" Número do cartão: ");
+				System.out.print(" Valor total a pagar: " + p.getValorTotal());
+				System.out.print(" Número do cartão: ");
 				long numeroCartao = scanner.nextLong();
 				cartao.setNumero(numeroCartao);
 				System.out.println(" CVV: ");

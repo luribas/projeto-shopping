@@ -50,9 +50,7 @@ public class ClienteView {
 					boolean retorno = controllerCliente.autenticarCliente(login, senha);
 					if(retorno)
 					{
-						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-						System.out.println("              BEM VINDO(A) " + cliente.getNome());
-						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println("        *     BEM VINDO(A) " + cliente.getNome() + "     *");
 						System.out.println(" 1 - Fazer Pedido");
 						System.out.println(" 2 - Alterar Dados");
 						System.out.println(" 3 - Visualizar Dados");
@@ -74,13 +72,13 @@ public class ClienteView {
 														  + ":\n    "
 													      + listaRestaurante.get(i).getDetalhes());
 									}
-									System.out.print("\n Digite a opï¿½ï¿½o desejada: " + "\n -> ");
+									System.out.print("\n Digite a opção desejada: " + "\n -> ");
 									int opResta = scanner.nextInt();
 										switch (opResta) {
 											case 1 :
 												String rest = "caldeirao";
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												System.out.println(" *           CARDï¿½PIO CALDEIRï¿½O FURADO             *");
+												System.out.println(" *           CARDÁPIO CALDEIRÃO FURADO             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
 												System.out.println(" 0 - Finalizar");
@@ -113,7 +111,7 @@ public class ClienteView {
 											case 2 :
 												String rest2 = "tres";
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												System.out.println(" *              CARDï¿½PIO TRï¿½S VASSORAS             *");
+												System.out.println(" *              CARDÁPIO TRÊS VASSORAS             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												List<Produto> listaVassoras = restauranteView.cardapioVassoras();
 												System.out.println(" 0 - Finalizar");
@@ -144,7 +142,7 @@ public class ClienteView {
 											case 3 :
 												String rest3 = "javali";
 												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												System.out.println(" *           CARDï¿½PIO CABEï¿½A DE JAVALI             *");
+												System.out.println(" *           CARDÁPIO CABEÇA DE JAVALI             *");
 												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 												List<Produto> listaJavali = restauranteView.cardapioJavali();
 												System.out.println(" 0 - Finalizar");
@@ -183,11 +181,11 @@ public class ClienteView {
 								case 4:
 									menuCliente();
 								default:
-									System.out.println(" Opï¿½ï¿½o invï¿½lida. Tente novamente.");
+									System.out.println(" Opção inválida. Tente novamente.");
 									break;
 							}
 					} else {
-						System.out.println(" Usuï¿½rio ou senha incorretos. Tente novamente.");
+						System.out.println(" Usuário ou senha incorretos. Tente novamente.");
 						menuCliente();
 					}
 					break;
@@ -198,7 +196,7 @@ public class ClienteView {
 					principal.menuPrincipal();
 					break;
 				default:
-					System.out.println(" Opï¿½ï¿½o invï¿½lida. ");
+					System.out.println(" Opção inválida. Tente novamente.");
 					break;
 			}
 		} 
