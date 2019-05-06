@@ -50,11 +50,12 @@ public class ClienteView {
 					boolean retorno = controllerCliente.autenticarCliente(login, senha);
 					if(retorno)
 					{
-						System.out.println("        *     BEM VINDO(A) " + cliente.getNome() + "     *");
+						String header = login.toUpperCase();  
+						System.out.println("\n        *     BEM VINDO(A) " + header + "     *");
 						System.out.println(" 1 - Fazer Pedido");
 						System.out.println(" 2 - Alterar Dados");
 						System.out.println(" 3 - Visualizar Dados");
-						System.out.println(" 4 - Voltar ï¿½ ï¿½rea do Cliente");
+						System.out.println(" 4 - Voltar área do Cliente");
 						System.out.print("\n -> ");
 						int opCliente = scanner.nextInt();
 							switch(opCliente) {
