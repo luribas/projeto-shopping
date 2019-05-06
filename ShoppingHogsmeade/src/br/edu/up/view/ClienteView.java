@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import br.edu.up.controller.ControllerCliente;
 import br.edu.up.controller.ControllerPedido;
-import br.edu.up.model.Administrador;
 import br.edu.up.model.Cliente;
 import br.edu.up.model.Produto;
 import br.edu.up.model.Restaurante;
@@ -105,7 +104,8 @@ public class ClienteView {
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente, rest);
 												if (controllerPedido.listaDePedidos().size() > 0) {
-													System.out.println(" Pedido realizado com sucesso! ");
+													System.out.println("\n   * Pedido realizado com sucesso! *");
+													controllerPedido.fazerPagamento(cliente);
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -136,7 +136,7 @@ public class ClienteView {
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente, rest2);
 												if (controllerPedido.listaDePedidos().size() > 0) {
-													System.out.println(" Pedido realizado com sucesso! ");
+													System.out.println("\n   * Pedido realizado com sucesso! *");
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -167,7 +167,7 @@ public class ClienteView {
 												} while(id > 0);
 												controllerPedido.finalizarPedido(cliente, rest3);
 												if (controllerPedido.listaDePedidos().size() > 0) {
-													System.out.println(" Pedido realizado com sucesso! ");
+													System.out.println("\n   * Pedido realizado com sucesso! *");
 												} else {
 													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 												}
@@ -183,7 +183,7 @@ public class ClienteView {
 								case 4:
 									menuCliente();
 								default:
-									System.out.println(" Opção inválida.");
+									System.out.println(" Opção inválida. Tente novamente.");
 									break;
 							}
 					} else {
