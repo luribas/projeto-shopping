@@ -9,6 +9,20 @@ public class Cliente {
 	private String login;
 	private String senha;
 	
+	public Cliente(String nome, String sobrenome, String email, String cpf, String telefone, String login, String senha){
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		this.email = email;
+		this.cpf = cpf;
+		this.telefone = telefone;
+		this.login = login;
+		this.senha = senha;
+	}
+	
+	public Cliente() {
+
+	}
+
 	public String getNome() {
 		return nome;
 	}

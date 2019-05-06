@@ -17,14 +17,19 @@ public class ClienteView {
 	static RestauranteView restauranteView = new RestauranteView();
 	static ControllerCliente controllerCliente = new ControllerCliente();
 	static ControllerPedido controllerPedido = new ControllerPedido();
-
+	
 	@SuppressWarnings("static-access")
 	public void menuCliente() {
 		int op;
+		
+		Cliente cliente1 = new Cliente("lu", "ribas", "lu@email.com", "123.654.789-11", "(41) 98746-4321", "lulu", "luluslindas");
+		Cliente cliente2 = new Cliente("lu", "ruivo", "lulu@email.com", "123.654.789-12", "(41) 96325-8741", "luruivo", "luluslindas"); 
+		controllerCliente.cadastrarCliente(cliente1);
+		controllerCliente.cadastrarCliente(cliente2);
+		
 		do 
-			
 		{
-			System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+					System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 			System.out.println(" *                 MENU CLIENTE                    * ");
 			System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 			System.out.println(" 1 - Login");
@@ -201,6 +206,7 @@ public class ClienteView {
 	}
 	
 	public static void cadastrarCliente() {
+		
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *               CADASTRAR CLIENTE                 * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
@@ -262,9 +268,15 @@ public class ClienteView {
 		System.out.println(" Insira Login ou E-mail e sua Senha para poder visualizar os dados.");
 		System.out.print(" Login: ");
 		String login = scanner.next();
-		System.out.print(" Senha: ");
-		String senha = scanner.next();
-		boolean retorno = controllerCliente.autenticarCliente(login, senha);
+		
+		for (int i =0; i < controllerCliente.listaCliente.size(); i++)
+		{
+			if (controllerCliente.listaCliente.get(i).getLogin().equals(login)){
+				int index = i;
+			}
+		}
+		
+	
 		if (retorno) {
 			System.out.print(" Nome: ");
 			cliente.getNome();

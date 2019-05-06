@@ -6,7 +6,7 @@ import java.util.List;
 import br.edu.up.model.Cliente;
 
 public class ControllerCliente {
-	List<Cliente> listaCliente = new ArrayList<Cliente>();
+	public List<Cliente> listaCliente = new ArrayList<Cliente>();
 	
 	public void cadastrarCliente(Cliente cliente)
 	{
