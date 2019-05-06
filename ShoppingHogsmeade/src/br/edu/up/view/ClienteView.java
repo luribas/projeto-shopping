@@ -272,28 +272,15 @@ public class ClienteView {
 		for (int i =0; i < controllerCliente.listaCliente.size(); i++)
 		{
 			if (controllerCliente.listaCliente.get(i).getLogin().equals(login)){
-				int index = i;
+				System.out.println(" Nome: " + controllerCliente.listaCliente.get(i).getNome());
+				System.out.println(" Sobrenome: " + controllerCliente.listaCliente.get(i).getSobrenome());
+				System.out.println(" E-mail: " + 	controllerCliente.listaCliente.get(i).getEmail());
+				System.out.println(" Telefone: " + controllerCliente.listaCliente.get(i).getTelefone());
+				System.out.println(" CPF: " + controllerCliente.listaCliente.get(i).getCpf());
+				System.out.println(" Login: " + login);
+				System.out.println(" Senha: " + controllerCliente.listaCliente.get(i).getSenha());
 			}
 		}
 		
-	
-		if (retorno) {
-			System.out.print(" Nome: ");
-			cliente.getNome();
-			System.out.print(" Sobrenome: ");
-			cliente.getSobrenome();
-			System.out.print(" E-mail: ");
-			cliente.getEmail();
-			System.out.print(" CPF: ");
-			cliente.getCpf();
-			System.out.print(" Telefone: ");
-			cliente.getTelefone();
-			System.out.print(" Login: ");
-			cliente.getLogin();
-			System.out.print(" Senha: ");
-			cliente.getSenha();
-		} else {
-			System.out.print(" Senha ou login incorretos! Tente novamente.");
-		}
 	}
 }
