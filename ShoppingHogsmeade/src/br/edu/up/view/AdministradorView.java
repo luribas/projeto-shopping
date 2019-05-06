@@ -3,10 +3,8 @@ package br.edu.up.view;
 import java.util.Scanner;
 
 import br.edu.up.controller.ControllerAdministrador;
-import br.edu.up.controller.ControllerCliente;
 import br.edu.up.controller.ControllerPedido;
 import br.edu.up.model.Administrador;
-import br.edu.up.model.Cliente;
 
 public class AdministradorView {
 	static ControllerAdministrador controllerAdministrador = new ControllerAdministrador();

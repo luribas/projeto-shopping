@@ -10,7 +10,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		menuPrincipal();
-	}
+	} 
 
 	@SuppressWarnings("static-access")
 	static public void menuPrincipal() {
@@ -22,28 +22,23 @@ public class Principal {
 		System.out.println(" 3 - Área Cozinha");
 		System.out.print("\n -> ");
 		int opMenu = 0;
-		try {
-			opMenu = scanner.nextInt();
-		}
-		catch (Exception e) {
-			System.out.println("\n Apenas números são aceitos na escolha de Área. ");
-			menuPrincipal();
-		}
 		do {
-			switch (opMenu) {
-				case 1:
-					administradorView.loginAdmin();
-					break;
-				case 2:
-					clienteView.menuCliente();
-					break;
-				case 3:
-					cozinhaView.loginCozinha();
-					break;
-				default:
-					System.out.println("\n Opção inválida. Tente novamente.");
-					break;
-			}
+			opMenu = scanner.nextInt();
+			
+				switch (opMenu) {
+					case 1:
+						administradorView.loginAdmin();
+						break;
+					case 2:
+						clienteView.menuCliente();
+						break;
+					case 3:
+						cozinhaView.loginCozinha();
+						break;
+					default:
+						System.out.println("\n Opção inválida. Tente novamente.");
+						break;
+				}
 		} while (opMenu > 0 && opMenu < 3);
 	}
 }
