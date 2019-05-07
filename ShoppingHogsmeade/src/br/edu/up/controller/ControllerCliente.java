@@ -16,7 +16,7 @@ public class ControllerCliente {
 	}
 	
 	public List<Cliente> listarCliente()
-	{
+	{ 
 		return listaCliente;
 	}
 	
