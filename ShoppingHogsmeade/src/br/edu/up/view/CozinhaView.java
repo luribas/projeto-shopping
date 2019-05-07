@@ -73,7 +73,14 @@ public class CozinhaView {
 							opPedidos = scanner.nextInt();
 							switch(opPedidos) {
 								case 1:
-									// função de finalizar
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.Pronto);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.Pronto)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 								break;
 								case 2:
 									menuCozinha();
@@ -117,7 +124,14 @@ public class CozinhaView {
 							opPedidosTres = scanner.nextInt();
 							switch(opPedidosTres) {
 								case 1:
-									// função de finalizar
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.Pronto);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.Pronto)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 								break;
 								case 2:
 									menuCozinha();
@@ -158,7 +172,14 @@ public class CozinhaView {
 							opPedidosJavali = scanner.nextInt();
 							switch(opPedidosJavali) {
 								case 1:
-									// função de finalizar
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.Pronto);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.Pronto)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 								break;
 								case 2:
 									menuCozinha();

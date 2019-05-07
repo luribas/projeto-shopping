@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import br.edu.up.controller.ControllerAdministrador;
 import br.edu.up.controller.ControllerPedido;
+import br.edu.up.enums.StatusPedido;
 import br.edu.up.model.Administrador;
 
 public class AdministradorView {
@@ -65,13 +66,25 @@ public class AdministradorView {
 							opPedidos = scanner.nextInt();
 							switch(opPedidos) {
 								case 1:
-									controllerPedido.statusFinalizado();
-									
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.Finalizado);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.Finalizado)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 									menuAdmin();
 								break;
 								case 2:
-									controllerPedido.statusEmAberto();
-									System.out.println(" Status do pedido alterado com sucesso!");
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.EmAberto);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.EmAberto)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 									menuAdmin();
 								break;
 								case 3:
@@ -102,8 +115,6 @@ public class AdministradorView {
 								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
 								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
-							} else {
-								System.out.println("\n Não há nenhum pedido Em Aberto.");
 							}
 						}
 						System.out.println("\n Digite a opção desejada: ");
@@ -116,13 +127,25 @@ public class AdministradorView {
 							opPedidosTres = scanner.nextInt();
 							switch(opPedidosTres) {
 								case 1:
-									controllerPedido.statusFinalizado();
-									
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.Finalizado);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.Finalizado)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 									menuAdmin();
 								break;
 								case 2:
-									controllerPedido.statusEmAberto();
-									System.out.println(" Status do pedido alterado com sucesso!");
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.EmAberto);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.EmAberto)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 									menuAdmin();
 								break;
 								case 3:
@@ -153,8 +176,6 @@ public class AdministradorView {
 								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
 								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
-							} else {
-								System.out.println("\n Não há nenhum pedido Em Aberto.");
 							}
 						}
 						System.out.println("\n Digite a opção desejada: ");
@@ -167,13 +188,25 @@ public class AdministradorView {
 							opPedidosJavali = scanner.nextInt();
 							switch(opPedidosJavali) {
 								case 1:
-									controllerPedido.statusFinalizado();
-									
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.Finalizado);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.Finalizado)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 									menuAdmin();
 								break;
 								case 2:
-									controllerPedido.statusEmAberto();
-									System.out.println(" Status do pedido alterado com sucesso!");
+									for (int j = 0; j< controllerPedido.listaPedidos.size(); j++) {
+										controllerPedido.listaPedidos.get(j).setStatus(StatusPedido.EmAberto);
+										if (controllerPedido.listaPedidos.get(j).getStatus().equals(StatusPedido.EmAberto)) {
+											System.out.println("\n Status alterado com sucesso! ");
+										} else {
+											System.out.println("\n Erro ao alterar Status. Tente novamente.");
+										}
+									}
 									menuAdmin();
 								break;
 								case 3:
