@@ -61,9 +61,7 @@ public class ControllerCliente {
 					listaCliente.get(i).setSenha(scanner.next());
 					
 					System.out.print("\n Dados alterados com sucesso! ");
-				} else {
-					System.out.print(" Oooops.");
-				}
 			}
 		}
 	}
+}
