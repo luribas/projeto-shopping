@@ -38,24 +38,53 @@ public class AdministradorView {
 					case 1: 
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
-								System.out.println("Produtos:" + controllerPedido.listaPedidos.get(i).getListaProdPedido());
-								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData());
-								System.out.println("");
+								System.out.println("Produtos:");
+										 
+								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
+
+									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
+								
+									
+								}
+								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("Cliente: " + controllerPedido.listaPedidos.get(i).getC());
+								System.out.println("Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							}
-	//						+ listaVassoras.get(i).getIdProduto() 
-	
-							//lista de pedidos caldeirao
-	//						 filtrar lista por restaurante				
-	//						for (int i = 0; i < LISTA FILTRADA.size(); i++ ){
-	//						   printar lista de pedidos com cliente, produto, quantidade e valor total por pedido
-	//						 }
 						}
 						break;
 					case 2:
+						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("tres")){
+								System.out.println("Produtos:");			 
+								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
+
+									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
+								}
+								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("Cliente: " + controllerPedido.listaPedidos.get(i).getC());
+								System.out.println("Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							}
+						}
 //						 lista de pedidos tres vassouras;
 						break;
 					case 3:
-//						 lista de pedidos cabeça de javali;
+						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("javali")){
+								System.out.println("Produtos:");			 
+								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
+
+									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
+								}
+								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("Cliente: " + controllerPedido.listaPedidos.get(i).getC());
+								System.out.println("Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							}
+						}
+						break;
+//						lista de pedidos cabeça de javali;
 				}
 				break;
 			case 2 :

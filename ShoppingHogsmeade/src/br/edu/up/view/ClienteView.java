@@ -34,7 +34,7 @@ public class ClienteView {
 			System.out.println(" 2 - Cadastre-se");
 			System.out.println(" 3 - Voltar ao menu principal");
 			System.out.print("\n -> ");
-			 op = scanner.nextInt();
+			op = scanner.nextInt();
 			switch(op) 
 			{
 				case 1:
@@ -48,6 +48,7 @@ public class ClienteView {
 					break;
 				default:
 					System.out.println(" Opção inválida. Tente novamente.");
+					menuCliente();
 					break;
 			}
 		} 
@@ -192,6 +193,7 @@ public class ClienteView {
 									break;
 									default:
 										System.out.println(" Opção inválida. Tente novamente.");
+										loginCliente();
 										break;
 							}
 							break;
@@ -205,6 +207,7 @@ public class ClienteView {
 						menuCliente();
 					default:
 						System.out.println(" Opção inválida. Tente novamente.");
+						loginCliente();
 						break;
 				}
 		} else {

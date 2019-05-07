@@ -20,25 +20,31 @@ public class Principal {
 		System.out.println(" 1 - Área Administrador");
 		System.out.println(" 2 - Área Cliente");
 		System.out.println(" 3 - Área Cozinha");
+		System.out.println(" 4 - Sair");
 		System.out.print("\n -> ");
 		int opMenu = 0;
+			
 		do {
 			opMenu = scanner.nextInt();
-			
 				switch (opMenu) {
-					case 1:
-						administradorView.loginAdmin();
-						break;
-					case 2:
-						clienteView.menuCliente();
-						break;
-					case 3:
-						cozinhaView.loginCozinha();
-						break;
-					default:
-						System.out.println("\n Opção inválida. Tente novamente.");
-						break;
-				}
-		} while (opMenu > 0 && opMenu < 3);
+				case 1:
+					administradorView.loginAdmin();
+					break;
+				case 2:
+					clienteView.menuCliente();
+					break;
+				case 3:
+					cozinhaView.loginCozinha();
+					break;
+				case 4:
+					System.out.println(" \n Fim do programa. ");
+					break;
+				default:
+					System.out.println("\n Opção inválida. Tente novamente.");
+					menuPrincipal();
+					break;
+			}	
+		} while (opMenu > 0 && opMenu < 4);
+
 	}
 }
