@@ -7,9 +7,8 @@ import br.edu.up.model.Produto;
 import br.edu.up.model.Restaurante;
 
 public class RestauranteView {
-	List<Restaurante> listaMenu = new ArrayList<>();
-	
 	public List<Restaurante> restaurantes() {
+		List<Restaurante> listaMenu = new ArrayList<>();
 		Restaurante caldeirao = new Restaurante(1, "Caldeirão Furado", "Refeições completas almoço e janta");
 		Restaurante tresVassoras = new Restaurante(2, "Três Vassoras", "Café e guloseimas");
 		Restaurante cabecaJavali = new Restaurante(3, "Cabeça de Javali", "Taverna e Churrascaria");

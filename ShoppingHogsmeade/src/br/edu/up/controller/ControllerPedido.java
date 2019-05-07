@@ -116,7 +116,7 @@ public class ControllerPedido {
 					valorPagar = scanner.nextDouble();
 				
 					if (valorPagar < p.getValorTotal()) {
-						System.out.println("\n Esse valor é menor que o total a pagar! Tente novamente. ");
+						System.out.println("\n Esse valor é menor que o total a pagar! \n Tente novamente. ");
 					} else {
 						double troco = valorPagar - p.getValorTotal();
 						String dx = df.format(troco);
