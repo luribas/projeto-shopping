@@ -85,7 +85,7 @@ public class ControllerPedido {
 				System.out.println(" *           PAGAMENTO CARTÃO DE CRÉDITO           *");
 				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				String dxValorTotal = df.format(p.getValorTotal());
-				System.out.print(" Valor total a pagar: " + dxValorTotal);
+				System.out.print(" Valor total a pagar: R$" + dxValorTotal);
 				System.out.print("\n Número do cartão: ");
 				String numeroCartao = scanner.next();
 				cartao.setNumero(numeroCartao);
