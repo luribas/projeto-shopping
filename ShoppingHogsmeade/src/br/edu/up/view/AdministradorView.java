@@ -52,7 +52,7 @@ public class AdministradorView {
 								}
 								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
-								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+								System.out.println("  Valor total: R$" + controllerPedido.listaPedidos.get(i).getValorTotal());
 							}
 						}
 						System.out.println("\n Digite a opção desejada: ");

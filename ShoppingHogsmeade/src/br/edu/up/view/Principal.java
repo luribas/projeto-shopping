@@ -45,6 +45,5 @@ public class Principal {
 					break;
 			}	
 		} while (opMenu > 0 && opMenu < 4);
-
 	}
 }

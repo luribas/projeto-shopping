@@ -243,34 +243,10 @@ public class ClienteView {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *              ALTERAR DADOS DO CLIENTE           * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" Insira Login ou E-mail e sua Senha para poder alterar os dados.");
+		System.out.println(" Insira Login para poder alterar os dados.");
 		System.out.print(" Login: ");
 		String login = scanner.next();
-		System.out.print(" Senha: ");
-		String senha = scanner.next();
-		boolean retorno = controllerCliente.autenticarCliente(login, senha);
-		if (retorno) {
-			System.out.print("\n Nome: ");
-			cliente.setNome(scanner.next());
-			System.out.print(" Sobrenome: ");
-			cliente.setSobrenome(scanner.next());
-			System.out.print(" E-mail: ");
-			cliente.setEmail(scanner.next());
-			System.out.print(" CPF: ");
-			cliente.setCpf(scanner.next());
-			System.out.print(" Telefone: ");
-			cliente.setTelefone(scanner.next());
-			System.out.print(" Novo login: ");
-			cliente.setLogin(scanner.next());
-			System.out.print(" Nova senha: ");
-			cliente.setSenha(scanner.next());
-			controllerCliente.autenticarCliente(login, senha);
-			if (retorno = true) {
-				System.out.print("\n Dados alterados com sucesso! ");
-			}
-		} else {
-			System.out.print(" Senha ou login incorretos! Tente novamente.");
-		}
+		controllerCliente.alterarDados(login);
 	}
 	
 	public static void visualizarDadosCliente() {
