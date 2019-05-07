@@ -110,15 +110,22 @@ public class ControllerPedido {
 				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				String dxDinheiro = df.format(p.getValorTotal());
 				System.out.println("  Valor total a pagar: R$" + dxDinheiro);
-				System.out.print("  Quanto deseja pagar? R$");
 				double valorPagar = 0;
-				valorPagar = scanner.nextDouble();
-				double troco = valorPagar - p.getValorTotal();
-				String dx = df.format(troco);
-				System.out.print("\n  -> Seu troco será: R$" + dx);
+				do {
+					System.out.print("\n  Qual o valor será pago? R$");
+					valorPagar = scanner.nextDouble();
 				
-				System.out.println("\n  * Favor pagar no caixa. *");
-				p.setStatus(StatusPedido.EmAberto);
+					if (valorPagar < p.getValorTotal()) {
+						System.out.println("\n Esse valor é menor que o total a pagar! Tente novamente. ");
+					} else {
+						double troco = valorPagar - p.getValorTotal();
+						String dx = df.format(troco);
+						System.out.print("\n  -> Seu troco será: R$" + dx);
+						
+						System.out.println("\n  * Favor pagar no caixa. *");
+						p.setStatus(StatusPedido.EmAberto);
+					} 
+				} while (valorPagar < p.getValorTotal());
 				break;
 			default:
 				System.out.println(" Opção inválida. Tente Novamente.");

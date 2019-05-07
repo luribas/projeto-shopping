@@ -18,9 +18,8 @@ public class ClienteView {
 	static ControllerPedido controllerPedido = new ControllerPedido();
 	
 	@SuppressWarnings("static-access")
-	public void menuCliente() {
+	public static void menuCliente() {
 		int op;
-		
 		Cliente cliente1 = new Cliente("lu", "ribas", "lu@email.com", "123.654.789-11", "(41) 98746-4321", "lulu", "luluslindas");
 		Cliente cliente2 = new Cliente("lu", "ruivo", "lulu@email.com", "123.654.789-12", "(41) 96325-8741", "luruivo", "luluslindas"); 
 		controllerCliente.cadastrarCliente(cliente1);
@@ -28,7 +27,7 @@ public class ClienteView {
 		
 		do 
 		{
-					System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+			System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 			System.out.println(" *                 MENU CLIENTE                    * ");
 			System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 			System.out.println(" 1 - Login");
@@ -39,159 +38,7 @@ public class ClienteView {
 			switch(op) 
 			{
 				case 1:
-					System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-					System.out.println(" *                  LOGIN                          *");
-					System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-					System.out.println(" Insira Login ou E-mail e sua Senha para acessar.");
-					System.out.print(" Login: ");
-					String login = scanner.next();
-					System.out.print(" Senha: ");
-					String senha = scanner.next();
-					boolean retorno = controllerCliente.autenticarCliente(login, senha);
-					if(retorno)
-					{
-						String header = login.toUpperCase();  
-						System.out.println("\n        *     BEM VINDO(A) " + header + "     *");
-						System.out.println(" 1 - Fazer Pedido");
-						System.out.println(" 2 - Alterar Dados");
-						System.out.println(" 3 - Visualizar Dados");
-						System.out.println(" 4 - Voltar área do Cliente");
-						System.out.print("\n -> ");
-						int opCliente = scanner.nextInt();
-							switch(opCliente) {
-								case 1 : 
-									System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-									System.out.println(" *                  RESTAURANTES                   *");
-									System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-									List<Restaurante> listaRestaurante = restauranteView.restaurantes();
-									for(int i=0; i<listaRestaurante.size(); i++)
-									{
-										System.out.println("\n "
-														  + listaRestaurante.get(i).getIdRestaurante()
-														  + " - "
-														  + listaRestaurante.get(i).getNome() 
-														  + ":\n    "
-													      + listaRestaurante.get(i).getDetalhes());
-									}
-									System.out.print("\n Digite a opção desejada: " + "\n -> ");
-									int opResta = scanner.nextInt();
-										switch (opResta) {
-											case 1 :
-												String rest = "caldeirao";
-												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												System.out.println(" *           CARDÁPIO CALDEIRÃO FURADO             *");
-												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
-												System.out.println(" 0 - Finalizar");
-												for(int i=0; i<listaCaldeirao.size(); i++)
-												{
-													System.out.println(" "
-																	 + listaCaldeirao.get(i).getIdProduto() 
-																	 + " - "
-															         + listaCaldeirao.get(i).getNome()
-															         + " / R$"
-																	 + listaCaldeirao.get(i).getPreco());
-												}
-												System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
-												int id;
-												do {
-													System.out.print("\n -> ");
-													id = scanner.nextInt();
-													if (id != 0) {
-														controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
-													}
-												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente, rest);
-												if (controllerPedido.listaDePedidos().size() > 0) {
-													controllerPedido.fazerPagamento(cliente);
-													System.out.println("\n        * Pedido realizado com sucesso! *");
-													
-												} else {
-													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
-												}
-												break;
-											case 2 :
-												String rest2 = "tres";
-												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												System.out.println(" *              CARDÁPIO TRÊS VASSORAS             *");
-												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												List<Produto> listaVassoras = restauranteView.cardapioVassoras();
-												System.out.println(" 0 - Finalizar");
-												for(int i=0; i<listaVassoras.size(); i++)
-												{
-													System.out.println(" "
-																	 + listaVassoras.get(i).getIdProduto() 
-																	 + " - "
-															         + listaVassoras.get(i).getNome()
-															         + " / R$"
-																	 + listaVassoras.get(i).getPreco());
-												}
-												System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
-												do {
-													System.out.print("\n -> ");
-													id = scanner.nextInt();
-													if (id != 0) {
-														controllerPedido.cadastrarCarrinhoCompra(listaVassoras.get(id-1));
-													}
-												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente, rest2);
-												if (controllerPedido.listaDePedidos().size() > 0) {
-													controllerPedido.fazerPagamento(cliente);
-													System.out.println("\n        * Pedido realizado com sucesso! *");
-												} else {
-													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
-												}
-												break;
-											case 3 :
-												String rest3 = "javali";
-												System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												System.out.println(" *           CARDÁPIO CABEÇA DE JAVALI             *");
-												System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-												List<Produto> listaJavali = restauranteView.cardapioJavali();
-												System.out.println(" 0 - Finalizar");
-												for(int i=0; i<listaJavali.size(); i++)
-												{
-													System.out.println(" "
-																	 + listaJavali.get(i).getIdProduto() 
-																	 + " - "
-															         + listaJavali.get(i).getNome()
-															         + " / R$"
-																	 + listaJavali.get(i).getPreco());
-												}
-												System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
-												do {
-													System.out.print("\n -> ");
-													id = scanner.nextInt();
-													if (id != 0) {
-														controllerPedido.cadastrarCarrinhoCompra(listaJavali.get(id-1));
-													}
-												} while(id > 0);
-												controllerPedido.finalizarPedido(cliente, rest3);
-												if (controllerPedido.listaDePedidos().size() > 0) {
-													controllerPedido.fazerPagamento(cliente);
-													System.out.println("\n        * Pedido realizado com sucesso! *");
-												} else {
-													System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
-												}
-												break;
-										}
-									break;
-								case 2 :
-									alterarDadosCliente();
-									break;
-								case 3 :
-									visualizarDadosCliente();
-									break;
-								case 4:
-									menuCliente();
-								default:
-									System.out.println(" Opção inválida. Tente novamente.");
-									break;
-							}
-					} else {
-						System.out.println(" Usuário ou senha incorretos. Tente novamente.");
-						menuCliente();
-					}
+					loginCliente();		
 					break;
 				case 2 : 
 					cadastrarCliente();
@@ -207,8 +54,166 @@ public class ClienteView {
 		while (op > 0 && op < 3);
 	}
 	
+	public static void loginCliente() {
+		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" *                  LOGIN                          *");
+		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" Insira Login ou E-mail e sua Senha para acessar.");
+		System.out.print(" Login: ");
+		String login = scanner.next();
+		System.out.print(" Senha: ");
+		String senha = scanner.next();
+		boolean retorno = controllerCliente.autenticarCliente(login, senha);
+		if(retorno)
+		{
+			String header = login.toUpperCase();  
+			System.out.println("\n        *     BEM VINDO(A) " + header + "     *");
+			System.out.println(" 1 - Fazer Pedido");
+			System.out.println(" 2 - Alterar Dados");
+			System.out.println(" 3 - Visualizar Dados");
+			System.out.println(" 4 - Voltar área do Cliente");
+			System.out.print("\n -> ");
+			int opCliente = scanner.nextInt();
+				switch(opCliente) {
+					case 1 : 
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *                  RESTAURANTES                   *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						List<Restaurante> listaRestaurante = restauranteView.restaurantes();
+						for(int i=0; i<listaRestaurante.size(); i++)
+						{
+							System.out.println("\n "
+											  + listaRestaurante.get(i).getIdRestaurante()
+											  + " - "
+											  + listaRestaurante.get(i).getNome() 
+											  + ":\n    "
+										      + listaRestaurante.get(i).getDetalhes());
+						}
+						System.out.print("\n Digite a opção desejada: " + "\n -> ");
+						int opResta = scanner.nextInt();
+							switch (opResta) {
+								case 1 :
+									String rest = "caldeirao";
+									System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									System.out.println(" *           CARDÁPIO CALDEIRÃO FURADO             *");
+									System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									List<Produto> listaCaldeirao = restauranteView.cardapioCaldeirao();
+									System.out.println(" 0 - Finalizar");
+									for(int i=0; i<listaCaldeirao.size(); i++)
+									{
+										System.out.println(" "
+														 + listaCaldeirao.get(i).getIdProduto() 
+														 + " - "
+												         + listaCaldeirao.get(i).getNome()
+												         + " / R$"
+														 + listaCaldeirao.get(i).getPreco());
+									}
+									System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
+									int id;
+									do {
+										System.out.print("\n -> ");
+										id = scanner.nextInt();
+										if (id != 0) {
+											controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
+										}
+									} while(id > 0);
+									controllerPedido.finalizarPedido(cliente, rest);
+									if (controllerPedido.listaDePedidos().size() > 0) {
+										controllerPedido.fazerPagamento(cliente);
+										System.out.println("\n        * Pedido realizado com sucesso! *");
+										
+									} else {
+										System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
+									}
+									break;
+								case 2 :
+									String rest2 = "tres";
+									System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									System.out.println(" *              CARDÁPIO TRÊS VASSORAS             *");
+									System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									List<Produto> listaVassoras = restauranteView.cardapioVassoras();
+									System.out.println(" 0 - Finalizar");
+									for(int i=0; i<listaVassoras.size(); i++)
+									{
+										System.out.println(" "
+														 + listaVassoras.get(i).getIdProduto() 
+														 + " - "
+												         + listaVassoras.get(i).getNome()
+												         + " / R$"
+														 + listaVassoras.get(i).getPreco());
+									}
+									System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
+									do {
+										System.out.print("\n -> ");
+										id = scanner.nextInt();
+										if (id != 0) {
+											controllerPedido.cadastrarCarrinhoCompra(listaVassoras.get(id-1));
+										}
+									} while(id > 0);
+									controllerPedido.finalizarPedido(cliente, rest2);
+									if (controllerPedido.listaDePedidos().size() > 0) {
+										controllerPedido.fazerPagamento(cliente);
+										System.out.println("\n        * Pedido realizado com sucesso! *");
+									} else {
+										System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
+									}
+									break;
+								case 3 :
+									String rest3 = "javali";
+									System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									System.out.println(" *           CARDÁPIO CABEÇA DE JAVALI             *");
+									System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+									List<Produto> listaJavali = restauranteView.cardapioJavali();
+									System.out.println(" 0 - Finalizar");
+									for(int i=0; i<listaJavali.size(); i++)
+									{
+										System.out.println(" "
+														 + listaJavali.get(i).getIdProduto() 
+														 + " - "
+												         + listaJavali.get(i).getNome()
+												         + " / R$"
+														 + listaJavali.get(i).getPreco());
+									}
+									System.out.println("\n Digite o(s) ID(s) do(s) produto(s): ");
+									do {
+										System.out.print("\n -> ");
+										id = scanner.nextInt();
+										if (id != 0) {
+											controllerPedido.cadastrarCarrinhoCompra(listaJavali.get(id-1));
+										}
+									} while(id > 0);
+									controllerPedido.finalizarPedido(cliente, rest3);
+									if (controllerPedido.listaDePedidos().size() > 0) {
+										controllerPedido.fazerPagamento(cliente);
+										System.out.println("\n        * Pedido realizado com sucesso! *");
+									} else {
+										System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
+									}
+									break;
+									default:
+										System.out.println(" Opção inválida. Tente novamente.");
+										break;
+							}
+							break;
+					case 2 :
+						alterarDadosCliente();
+						break;
+					case 3 :
+						visualizarDadosCliente();
+						break;
+					case 4:
+						menuCliente();
+					default:
+						System.out.println(" Opção inválida. Tente novamente.");
+						break;
+				}
+		} else {
+			System.out.println(" Usuário ou senha incorretos. Tente novamente.");
+			menuCliente();
+		}
+	}
+	
 	public static void cadastrarCliente() {
-		
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *               CADASTRAR CLIENTE                 * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
@@ -256,7 +261,7 @@ public class ClienteView {
 			cliente.setSenha(scanner.next());
 			controllerCliente.autenticarCliente(login, senha);
 			if (retorno = true) {
-				System.out.print("\n Alterado com sucesso! ");
+				System.out.print("\n Dados alterados com sucesso! ");
 			}
 		} else {
 			System.out.print(" Senha ou login incorretos! Tente novamente.");
@@ -267,7 +272,7 @@ public class ClienteView {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *            VISUALIZAR DADOS DO CLIENTE          * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" Insira Login ou E-mail e sua Senha para poder visualizar os dados.");
+		System.out.println(" Insira Login ou E-mail para poder visualizar os dados.");
 		System.out.print(" Login: ");
 		String login = scanner.next();
 		
