@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 import br.edu.up.enums.StatusPedido;
 import br.edu.up.model.Cartao;
-import br.edu.up.model.Cliente;
 import br.edu.up.model.Pedido;
 import br.edu.up.model.Produto;
 
@@ -29,17 +28,16 @@ public class ControllerPedido {
 		carrinhoCompra.add(p);
 	}
 	
-	public void finalizarPedido(Cliente c, String r) {
-		p.setC(c);
+	public void finalizarPedido(String r) {
 		p.setListaProdPedido(carrinhoCompra);
 		p.setRestaurante(r);
 
-		if(p.getSenha() == 0) {
-			p.setSenha(1); 
+		if(p.getSenhaPedido() == 0) {
+			p.setSenhaPedido(1); 
 		} else {
-			int id = p.getSenha();
+			int id = p.getSenhaPedido();
 			id = id++;
-			p.setSenha(id);
+			p.setSenhaPedido(id);
 		}
 		Calendar data = Calendar.getInstance();
 		String dataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(data.getTime());
@@ -57,18 +55,20 @@ public class ControllerPedido {
 		System.out.println(" *                 NOTA FISCAL                     *");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println("   Data do pedido: " + p.getData());
+		
 		for (int i=0; i<listaPedidos.size(); i++){
 			for (int j = 0; j< listaPedidos.get(i).getListaProdPedido().size(); j++) {
-				System.out.println("\n   " + (j+1) + " - " + listaPedidos.get(i).getListaProdPedido().get(j).getNome()
-						+ " / R$"+ listaPedidos.get(i).getListaProdPedido().get(j).getPreco());
+				System.out.println("\n   " + (j+1) 
+						+ " - " + listaPedidos.get(i).getListaProdPedido().get(listaPedidos.get(i).getListaProdPedido().size()-1).getNome()
+						+ " / R$" + listaPedidos.get(i).getListaProdPedido().get(listaPedidos.get(i).getListaProdPedido().size()-1).getPreco());
 			}
 		}
 		String dxSoma = df.format(soma);
 		System.out.println("\n   -> Valor total: R$" + dxSoma);
+		System.out.println(" \n # Senha do pedido: " + p.getSenhaPedido() + " #");
 	}
 	
-	public void fazerPagamento(Cliente c) {
-		p.setC(c);
+	public void fazerPagamento() {
 		p.setListaProdPedido(carrinhoCompra);
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *                     PAGAMENTO                   *");

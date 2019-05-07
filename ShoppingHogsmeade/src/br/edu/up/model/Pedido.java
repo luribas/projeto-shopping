@@ -6,10 +6,9 @@ import java.util.List;
 import br.edu.up.enums.StatusPedido;
 
 public class Pedido {
-	private Cliente c = new Cliente();
 	private List<Produto> listaProdPedido  = new ArrayList<>();
 	private double valorTotal;
-	private int senha;
+	private int senhaPedido;
 	private String data;
 	private StatusPedido status;
 	private String restaurante;
@@ -19,15 +18,6 @@ public class Pedido {
 	}
 	public void setRestaurante(String restaurante) {
 		this.restaurante = restaurante;
-	}
-	public void setSenha(int senha) {
-		this.senha = senha;
-	}
-	public Cliente getC() {
-		return c;
-	}
-	public void setC(Cliente c) {
-		this.c = c;
 	}
 	public List<Produto> getListaProdPedido() {
 		return listaProdPedido;
@@ -42,11 +32,11 @@ public class Pedido {
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
 	}
-	public int getSenha() {
-		return senha;
+	public int getSenhaPedido() {
+		return senhaPedido;
 	}
-	public void setSenhao(int senha) {
-		this.senha = senha;
+	public void setSenhaPedido(int senhaPedido) {
+		this.senhaPedido = senhaPedido;
 	}
 	public String getData() {
 		return data;

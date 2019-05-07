@@ -118,10 +118,10 @@ public class ClienteView {
 											controllerPedido.cadastrarCarrinhoCompra(listaCaldeirao.get(id-1));
 										}
 									} while(id > 0);
-									controllerPedido.finalizarPedido(cliente, rest);
+									controllerPedido.finalizarPedido(rest);
 									if (controllerPedido.listaDePedidos().size() > 0) {
-										controllerPedido.fazerPagamento(cliente);
-										System.out.println("\n        * Pedido realizado com sucesso! *");
+										controllerPedido.fazerPagamento();
+										System.out.println("\n       * Pedido realizado com sucesso! *");
 										
 									} else {
 										System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
@@ -151,10 +151,11 @@ public class ClienteView {
 											controllerPedido.cadastrarCarrinhoCompra(listaVassoras.get(id-1));
 										}
 									} while(id > 0);
-									controllerPedido.finalizarPedido(cliente, rest2);
+									
+									controllerPedido.finalizarPedido(rest2);
 									if (controllerPedido.listaDePedidos().size() > 0) {
-										controllerPedido.fazerPagamento(cliente);
-										System.out.println("\n        * Pedido realizado com sucesso! *");
+										controllerPedido.fazerPagamento();
+										System.out.println("\n       * Pedido realizado com sucesso! *");
 									} else {
 										System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 									}
@@ -183,10 +184,10 @@ public class ClienteView {
 											controllerPedido.cadastrarCarrinhoCompra(listaJavali.get(id-1));
 										}
 									} while(id > 0);
-									controllerPedido.finalizarPedido(cliente, rest3);
+									controllerPedido.finalizarPedido(rest3);
 									if (controllerPedido.listaDePedidos().size() > 0) {
-										controllerPedido.fazerPagamento(cliente);
-										System.out.println("\n        * Pedido realizado com sucesso! *");
+										controllerPedido.fazerPagamento();
+										System.out.println("\n       * Pedido realizado com sucesso! *");
 									} else {
 										System.out.println("\n Erro ao realizar o pedido. Tente novamente.");
 									}

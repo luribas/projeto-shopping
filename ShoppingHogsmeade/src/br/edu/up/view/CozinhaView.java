@@ -48,7 +48,7 @@ public class CozinhaView {
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")
 									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)){
-								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenhaPedido());
 								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
 									System.out.println("   " + (j+1) 
@@ -56,8 +56,7 @@ public class CozinhaView {
 											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
 																	       .get(j).getNome());
 								}
-								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData());
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
 								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							} else {
@@ -100,7 +99,7 @@ public class CozinhaView {
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("tres")
 									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)){
-								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenhaPedido());
 								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
 									System.out.println("   " + (j+1) 
@@ -108,8 +107,7 @@ public class CozinhaView {
 											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
 																	       .get(j).getNome());
 								}
-								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData());
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
 								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							} else {
@@ -149,7 +147,7 @@ public class CozinhaView {
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("javali")
 									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)){
-								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenhaPedido());
 								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
 									System.out.println("   " + (j+1) 
@@ -158,7 +156,6 @@ public class CozinhaView {
 																	       .get(j).getNome());
 								}
 								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
 								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							} else {
