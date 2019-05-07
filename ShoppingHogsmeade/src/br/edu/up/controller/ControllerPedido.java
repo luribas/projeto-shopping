@@ -59,8 +59,8 @@ public class ControllerPedido {
 		for (int i=0; i<listaPedidos.size(); i++){
 			for (int j = 0; j< listaPedidos.get(i).getListaProdPedido().size(); j++) {
 				System.out.println("\n   " + (j+1) 
-						+ " - " + listaPedidos.get(i).getListaProdPedido().get(listaPedidos.get(i).getListaProdPedido().size()-1).getNome()
-						+ " / R$" + listaPedidos.get(i).getListaProdPedido().get(listaPedidos.get(i).getListaProdPedido().size()-1).getPreco());
+						+ " - " + listaPedidos.get(i).getListaProdPedido().get(j).getNome()
+						+ " / R$" + listaPedidos.get(i).getListaProdPedido().get(j).getPreco());
 			}
 		}
 		String dxSoma = df.format(soma);
