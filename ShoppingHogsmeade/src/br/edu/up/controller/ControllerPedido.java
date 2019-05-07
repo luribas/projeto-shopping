@@ -51,14 +51,14 @@ public class ControllerPedido {
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println("   Data do pedido: " + p.getData());
 		System.out.print("\n  ");
-//		for (int i = 0; i < listaDePedidos().size(); i++ ) {
-//			System.out.println("  - "
-//			+ listaDePedidos().get(i).getListaProdPedido().get(i).getNome()
-//			+ " / R$"
-//			+ listaDePedidos().get(i).getListaProdPedido().get(i).getPreco()); 
-//		}
+		for (int i=0; i<listaPedidos.size(); i++){
+			for (int j = 0; j< listaPedidos.get(i).getListaProdPedido().size(); j++) {
+				System.out.println("    " + (j+1) + " - " + listaPedidos.get(i).getListaProdPedido().get(j).getNome()
+						+ " / R$"+ listaPedidos.get(i).getListaProdPedido().get(j).getPreco());
+			}
+		}
 		String dxSoma = df.format(soma);
-		System.out.println(" -> Valor total: R$" + dxSoma);
+		System.out.println("\n   -> Valor total: R$" + dxSoma);
 	}
 	
 	public void fazerPagamento(Cliente c) {

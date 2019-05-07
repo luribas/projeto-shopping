@@ -38,8 +38,7 @@ public class AdministradorView {
 					case 1: 
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
-								System.out.println("Produtos:");
-										 
+								System.out.println("Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
 
 									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
