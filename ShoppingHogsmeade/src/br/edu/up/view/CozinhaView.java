@@ -9,7 +9,6 @@ import br.edu.up.controller.ControllerPedido;
 import br.edu.up.enums.StatusPedido;
 import br.edu.up.model.Cozinha;
 import br.edu.up.model.Pedido;
-import br.edu.up.model.Produto;
 
 public class CozinhaView {
 	static Principal principal = new Principal();
@@ -43,25 +42,133 @@ public class CozinhaView {
 				switch (restOpcao)
 				{
 					case 1: 
-						Pedido p = new Pedido();
-						if(p.getStatus() == StatusPedido.EmAberto) {
-							for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++) {
-								System.out.println("  - " + controllerPedido.listaDePedidos().get(i).getC().getNome());
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *       VISUALIZAR PEDIDOS CALDEIRÃO FURADO       *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)){
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Produtos:");	 
+								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
+									System.out.println("   " + (j+1) 
+											+ " - " 
+											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
+																	       .get(j).getNome());
+								}
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							} else {
+								System.out.println("\n Não há nenhum pedido Em Aberto.");
 							}
-						} else {
-							System.out.println("\n Não foi possível ver os pedidos em aberto. Tente novamente. ");
 						}
-//						lista de pedidos STATUS - EM ABERTO caldeirao
-//						filtrar lista por restaurante e status
-//						for (int i = 0; i < controllerPedido.listaDePedidos().size(); i++ ){
-//						   printar lista de pedido com cliente, produto, quantidade, SENHA (numero) e valor total por pedido
-//						}
+						System.out.println("\n Digite a opção desejada: ");
+						System.out.println(" 1 - Marcar pedido como Pronto ");
+						System.out.println(" 2 - Voltar ao menu da cozinha");
+						System.out.print(" -> ");
+						int opPedidos;
+						do {
+							opPedidos = scanner.nextInt();
+							switch(opPedidos) {
+								case 1:
+									// função de finalizar
+								break;
+								case 2:
+									menuCozinha();
+								break;
+								default:
+									System.out.println(" Opção inválida. Tente novamente.");
+									menuCozinha();
+								break;
+							}
+						} while (opPedidos > 0 && opPedidos < 3);
 						break;
 					case 2:
-//						 lista de pedidos STATUS - EM ABERTO  tres vassouras;
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *       VISUALIZAR PEDIDOS TRÊS VASSORAS          *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("tres")
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)){
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Produtos:");	 
+								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
+									System.out.println("   " + (j+1) 
+											+ " - " 
+											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
+																	       .get(j).getNome());
+								}
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							} else {
+								System.out.println("\n Não há nenhum pedido Em Aberto.");
+							}
+						}
+						System.out.println("\n Digite a opção desejada: ");
+						System.out.println(" 1 - Marcar pedido como Pronto ");
+						System.out.println(" 2 - Voltar ao menu da cozinha");
+						System.out.print(" -> ");
+						int opPedidosTres;
+						do {
+							opPedidosTres = scanner.nextInt();
+							switch(opPedidosTres) {
+								case 1:
+									// função de finalizar
+								break;
+								case 2:
+									menuCozinha();
+								break;
+								default:
+									System.out.println(" Opção inválida. Tente novamente.");
+									menuCozinha();
+								break;
+							}
+						} while (opPedidosTres > 0 && opPedidosTres < 3);
 						break;
 					case 3:
-//						 lista de pedidos STATUS - EM ABERTO  cabeça de javali;
+						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("javali")
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)){
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Produtos:");	 
+								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
+									System.out.println("   " + (j+1) 
+											+ " - " 
+											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
+																	       .get(j).getNome());
+								}
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							} else {
+								System.out.println("\n Não há nenhum pedido Em Aberto.");
+							}
+						}
+						System.out.println("\n Digite a opção desejada: ");
+						System.out.println(" 1 - Marcar pedido como Pronto ");
+						System.out.println(" 2 - Voltar ao menu da cozinha");
+						System.out.print(" -> ");
+						int opPedidosJavali;
+						do {
+							opPedidosJavali = scanner.nextInt();
+							switch(opPedidosJavali) {
+								case 1:
+									// função de finalizar
+								break;
+								case 2:
+									menuCozinha();
+								break;
+								default:
+									System.out.println(" Opção inválida. Tente novamente.");
+									menuCozinha();
+								break;
+							}
+						} while (opPedidosJavali > 0 && opPedidosJavali < 3);
 						break;
 					case 4 :
 						menuCozinha();
@@ -96,17 +203,6 @@ public class CozinhaView {
 		} else {
 			System.out.println(" Usuário ou senha incorretos. Tente novamente.");
 			loginCozinha();
-		}
-	}
-	
-	// Listar pedidos ainda não entregues
-	public void verPedido() {
-		for (Pedido p : controllerPedido.listaDePedidos()) {
-			if(StatusPedido.EmAberto != null) {
-				for (Produto prod : p.getListaProdPedido()) {
-					System.out.println(prod.getNome());
-				}
-			}
 		}
 	}
 	

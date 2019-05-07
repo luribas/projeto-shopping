@@ -37,7 +37,7 @@ public class AdministradorView {
 				{
 					case 1: 
 						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-						System.out.println(" *                 VISUALIZAR PEDIDOS              *");
+						System.out.println(" *       VISUALIZAR PEDIDOS CALDEIRÃO FURADO       *");
 						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
@@ -50,7 +50,7 @@ public class AdministradorView {
 																	       .get(j).getNome());
 								}
 								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC());
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
 								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
 								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							}
@@ -85,34 +85,106 @@ public class AdministradorView {
 						} while (opPedidos > 0 && opPedidos < 3);
 						break;
 					case 2:
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *       VISUALIZAR PEDIDOS TRÊS VASSORAS          *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("tres")){
-								System.out.println("Produtos:");			 
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
-
-									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
+									System.out.println("   " + (j+1) 
+											+ " - " 
+											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
+																	       .get(j).getNome());
 								}
-								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("Cliente: " + controllerPedido.listaPedidos.get(i).getC());
-								System.out.println("Status: " + controllerPedido.listaPedidos.get(i).getStatus());
-								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							} else {
+								System.out.println("\n Não há nenhum pedido Em Aberto.");
 							}
 						}
+						System.out.println("\n Digite a opção desejada: ");
+						System.out.println(" 1 - Marcar pedido como Finalizado ");
+						System.out.println(" 2 - Marca pedido como Em aberto");
+						System.out.println(" 3 - Voltar ao menu do administrador");
+						System.out.print(" -> ");
+						int opPedidosTres;
+						do {
+							opPedidosTres = scanner.nextInt();
+							switch(opPedidosTres) {
+								case 1:
+									controllerPedido.statusFinalizado();
+									
+									menuAdmin();
+								break;
+								case 2:
+									controllerPedido.statusEmAberto();
+									System.out.println(" Status do pedido alterado com sucesso!");
+									menuAdmin();
+								break;
+								case 3:
+									menuAdmin();
+								break;
+								default:
+									System.out.println(" Opção inválida. Tente novamente.");
+									menuAdmin();
+								break;
+							}
+						} while (opPedidosTres > 0 && opPedidosTres < 3);
 						break;
 					case 3:
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *       VISUALIZAR PEDIDOS CABEÇA DE JAVALI       *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("javali")){
-								System.out.println("Produtos:");			 
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
-
-									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
+									System.out.println("   " + (j+1) 
+											+ " - " 
+											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
+																	       .get(j).getNome());
 								}
-								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("Cliente: " + controllerPedido.listaPedidos.get(i).getC());
-								System.out.println("Status: " + controllerPedido.listaPedidos.get(i).getStatus());
-								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC().getNome());
+								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+							} else {
+								System.out.println("\n Não há nenhum pedido Em Aberto.");
 							}
 						}
+						System.out.println("\n Digite a opção desejada: ");
+						System.out.println(" 1 - Marcar pedido como Finalizado ");
+						System.out.println(" 2 - Marca pedido como Em aberto");
+						System.out.println(" 3 - Voltar ao menu do administrador");
+						System.out.print(" -> ");
+						int opPedidosJavali;
+						do {
+							opPedidosJavali = scanner.nextInt();
+							switch(opPedidosJavali) {
+								case 1:
+									controllerPedido.statusFinalizado();
+									
+									menuAdmin();
+								break;
+								case 2:
+									controllerPedido.statusEmAberto();
+									System.out.println(" Status do pedido alterado com sucesso!");
+									menuAdmin();
+								break;
+								case 3:
+									menuAdmin();
+								break;
+								default:
+									System.out.println(" Opção inválida. Tente novamente.");
+									menuAdmin();
+								break;
+							}
+						} while (opPedidosJavali > 0 && opPedidosJavali < 3);
 						break;
 				}
 				break;

@@ -141,8 +141,10 @@ public class ControllerPedido {
 	
 	public void statusEmAberto() {
 		p.setStatus(StatusPedido.EmAberto);
+		System.out.println(" Status do pedido alterado com sucesso!");
 	}
 	public void statusFinalizado() {
 		p.setStatus(StatusPedido.Finalizado);
+		System.out.println(" Status do pedido alterado com sucesso!");
 	}
 }
