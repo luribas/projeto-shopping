@@ -199,10 +199,10 @@ public class ClienteView {
 							}
 							break;
 					case 2 :
-						alterarDadosCliente();
+						controllerCliente.alterarDados(login);
 						break;
 					case 3 :
-						visualizarDadosCliente();
+						visualizarDadosCliente(login);
 						break;
 					case 4:
 						menuCliente();
@@ -239,23 +239,11 @@ public class ClienteView {
 		controllerCliente.cadastrarCliente(c);
 	}
 
-	public static void alterarDadosCliente() {
-		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" *              ALTERAR DADOS DO CLIENTE           * ");
-		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" Insira Login para poder alterar os dados.");
-		System.out.print(" Login: ");
-		String login = scanner.next();
-		controllerCliente.alterarDados(login);
-	}
 	
-	public static void visualizarDadosCliente() {
+	public static void visualizarDadosCliente(String login) {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *            VISUALIZAR DADOS DO CLIENTE          * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" Insira Login ou E-mail para poder visualizar os dados.");
-		System.out.print(" Login: ");
-		String login = scanner.next();
 		
 		for (int i =0; i < controllerCliente.listaCliente.size(); i++)
 		{

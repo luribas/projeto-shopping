@@ -38,6 +38,9 @@ public class ControllerCliente {
 	
 	public void alterarDados(String login)
 	{
+		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+		System.out.println(" *              ALTERAR DADOS DO CLIENTE           * ");
+		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		for (int i = 0; i < listaCliente.size(); i++) 
 		{
 			if(listaCliente.get(i).getLogin().equals(login))
@@ -59,7 +62,7 @@ public class ControllerCliente {
 					
 					System.out.print("\n Dados alterados com sucesso! ");
 				} else {
-					System.out.print(" Senha ou login incorretos! Tente novamente.");
+					System.out.print(" Oooops.");
 				}
 			}
 		}
