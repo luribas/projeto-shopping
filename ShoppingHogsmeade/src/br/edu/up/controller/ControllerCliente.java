@@ -2,11 +2,13 @@ package br.edu.up.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import br.edu.up.model.Cliente;
 
 public class ControllerCliente {
 	public List<Cliente> listaCliente = new ArrayList<Cliente>();
+	static Scanner scanner = new Scanner(System.in);
 	
 	public void cadastrarCliente(Cliente cliente)
 	{
@@ -32,4 +34,33 @@ public class ControllerCliente {
 		}
 		return valida;
 	}
-}
+
+	
+	public void alterarDados(String login)
+	{
+		for (int i = 0; i < listaCliente.size(); i++) 
+		{
+			if(listaCliente.get(i).getLogin().equals(login))
+			{
+					System.out.print("\n Nome: ");
+					listaCliente.get(i).setNome(scanner.next());
+					System.out.print(" Sobrenome: ");
+					listaCliente.get(i).setSobrenome(scanner.next());
+					System.out.print(" E-mail: ");
+					listaCliente.get(i).setEmail(scanner.next());
+					System.out.print(" CPF: ");
+					listaCliente.get(i).setCpf(scanner.next());
+					System.out.print(" Telefone: ");
+					listaCliente.get(i).setTelefone(scanner.next());
+					System.out.print(" Novo login: ");
+					listaCliente.get(i).setLogin(scanner.next());
+					System.out.print(" Nova senha: ");
+					listaCliente.get(i).setSenha(scanner.next());
+					
+					System.out.print("\n Dados alterados com sucesso! ");
+				} else {
+					System.out.print(" Senha ou login incorretos! Tente novamente.");
+				}
+			}
+		}
+	}

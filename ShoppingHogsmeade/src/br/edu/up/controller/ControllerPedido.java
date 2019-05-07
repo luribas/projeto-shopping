@@ -56,6 +56,7 @@ public class ControllerPedido {
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println("   Data do pedido: " + p.getData());
 		
+
 		for (int i=0; i<listaPedidos.size(); i++){
 			for (int j = 0; j< listaPedidos.get(i).getListaProdPedido().size(); j++) {
 				System.out.println("\n   " + (j+1) 
@@ -63,6 +64,7 @@ public class ControllerPedido {
 						+ " / R$" + listaPedidos.get(i).getListaProdPedido().get(j).getPreco());
 			}
 		}
+		
 		String dxSoma = df.format(soma);
 		System.out.println("\n   -> Valor total: R$" + dxSoma);
 		System.out.println(" \n # Senha do pedido: " + p.getSenhaPedido() + " #");

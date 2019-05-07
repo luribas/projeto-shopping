@@ -218,24 +218,25 @@ public class ClienteView {
 	}
 	
 	public static void cadastrarCliente() {
+		Cliente c = new Cliente();
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *               CADASTRAR CLIENTE                 * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.print(" Nome: ");
-		cliente.setNome(scanner.next());
+		c.setNome(scanner.next());
 		System.out.print(" Sobrenome: ");
-		cliente.setSobrenome(scanner.next());
+		c.setSobrenome(scanner.next());
 		System.out.print(" E-mail: ");
-		cliente.setEmail(scanner.next());
+		c.setEmail(scanner.next());
 		System.out.print(" CPF: ");
-		cliente.setCpf(scanner.next());
+		c.setCpf(scanner.next());
 		System.out.print(" Telefone: ");
-		cliente.setTelefone(scanner.next());
+		c.setTelefone(scanner.next());
 		System.out.print(" Login: ");
-		cliente.setLogin(scanner.next());
+		c.setLogin(scanner.next());
 		System.out.print(" Senha: ");
-		cliente.setSenha(scanner.next());
-		controllerCliente.cadastrarCliente(cliente);
+		c.setSenha(scanner.next());
+		controllerCliente.cadastrarCliente(c);
 	}
 
 	public static void alterarDadosCliente() {
