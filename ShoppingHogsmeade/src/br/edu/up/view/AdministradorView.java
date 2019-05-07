@@ -18,7 +18,7 @@ public class AdministradorView {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *              MENU ADMINISTRADOR                 *");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.println(" 1 - Ver pedidos");
+		System.out.println(" 1 - Visualizar pedidos");
 		System.out.println(" 2 - Voltar ao Menu Principal");
 		System.out.print("\n -> ");
 		int opAdmin = scanner.nextInt();
@@ -36,7 +36,9 @@ public class AdministradorView {
 				switch (rest)
 				{
 					case 1: 
-						System.out.println("\n     *    VER PEDIDOS    *");
+						System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
+						System.out.println(" *                 VISUALIZAR PEDIDOS              *");
+						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
 								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
