@@ -79,21 +79,33 @@ public class ClienteView {
 		System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println(" *               CADASTRAR CLIENTE                 * ");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-		System.out.print(" Nome: ");
-		c.setNome(scanner.next());
-		System.out.print(" Sobrenome: ");
-		c.setSobrenome(scanner.next());
-		System.out.print(" E-mail: ");
-		c.setEmail(scanner.next());
-		System.out.print(" CPF: ");
-		c.setCpf(scanner.next());
-		System.out.print(" Telefone: ");
-		c.setTelefone(scanner.next());
 		System.out.print(" Login: ");
-		c.setLogin(scanner.next());
-		System.out.print(" Senha: ");
-		c.setSenha(scanner.next());
-		controllerCliente.cadastrarCliente(c);
+		String login = scanner.next();
+		System.out.print(" E-mail: ");
+		String email = scanner.next();
+		
+		boolean valida = controllerCliente.conferirCad(login, email); 
+		
+		if (valida) {
+			System.out.println("\n Email ou Usuário já cadastrado!");
+		} else {
+			c.setLogin(login);
+			c.setEmail(email);
+			System.out.print(" Senha: ");
+			c.setSenha(scanner.next());
+			System.out.print(" Nome: ");
+			c.setNome(scanner.next());
+			System.out.print(" Sobrenome: ");
+			c.setSobrenome(scanner.next());
+			System.out.print(" CPF: ");
+			c.setCpf(scanner.next());
+			System.out.print(" Telefone: ");
+			c.setTelefone(scanner.next());
+			
+			controllerCliente.cadastrarCliente(c);
+		}
+		menuCliente();
+
 	}
 	
 	
@@ -234,7 +246,6 @@ public class ClienteView {
 						break;
 				case 2 :
 					controllerCliente.alterarDados(login);
-					clienteLogado(login);
 					break;
 				case 3 :
 					visualizarDadosCliente(login);
