@@ -33,7 +33,14 @@ public class ControllerPedido {
 		p.setC(c);
 		p.setListaProdPedido(carrinhoCompra);
 		p.setRestaurante(r);
-		                                                           
+
+		if(p.getSenha() == 0) {
+			p.setSenha(1); 
+		} else {
+			int id = p.getSenha();
+			id = id++;
+			p.setSenha(id);
+		}
 		Calendar data = Calendar.getInstance();
 		String dataFormatada = new SimpleDateFormat("dd/MM/yyyy").format(data.getTime());
 		p.setData(dataFormatada);    
@@ -50,10 +57,9 @@ public class ControllerPedido {
 		System.out.println(" *                 NOTA FISCAL                     *");
 		System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 		System.out.println("   Data do pedido: " + p.getData());
-		System.out.print("\n  ");
 		for (int i=0; i<listaPedidos.size(); i++){
 			for (int j = 0; j< listaPedidos.get(i).getListaProdPedido().size(); j++) {
-				System.out.println("    " + (j+1) + " - " + listaPedidos.get(i).getListaProdPedido().get(j).getNome()
+				System.out.println("\n   " + (j+1) + " - " + listaPedidos.get(i).getListaProdPedido().get(j).getNome()
 						+ " / R$"+ listaPedidos.get(i).getListaProdPedido().get(j).getPreco());
 			}
 		}
@@ -102,7 +108,7 @@ public class ControllerPedido {
 				String dxDebito = df.format(p.getValorTotal());
 				System.out.println("  Valor total a pagar: R$" + dxDebito);
 				System.out.println("\n  * Favor pagar no caixa. *");
-				p.setStatus(StatusPedido.EmAberto);
+				p.setStatus(StatusPedido.AguardandoPagamento);
 				break;
 			case 3 :
 				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
@@ -123,7 +129,7 @@ public class ControllerPedido {
 						System.out.print("\n  -> Seu troco será: R$" + dx);
 						
 						System.out.println("\n  * Favor pagar no caixa. *");
-						p.setStatus(StatusPedido.EmAberto);
+						p.setStatus(StatusPedido.AguardandoPagamento);
 					} 
 				} while (valorPagar < p.getValorTotal());
 				break;
@@ -131,5 +137,12 @@ public class ControllerPedido {
 				System.out.println(" Opção inválida. Tente Novamente.");
 				break;
 		}
+	}
+	
+	public void statusEmAberto() {
+		p.setStatus(StatusPedido.EmAberto);
+	}
+	public void statusFinalizado() {
+		p.setStatus(StatusPedido.Finalizado);
 	}
 }

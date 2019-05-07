@@ -36,21 +36,51 @@ public class AdministradorView {
 				switch (rest)
 				{
 					case 1: 
+						System.out.println("\n     *    VER PEDIDOS    *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
 							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
-								System.out.println("Produtos:");	 
+								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
+								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
-
-									System.out.println( (j+1) + " - " + controllerPedido.listaPedidos.get(i).getListaProdPedido().get(j).getNome());
-								
-									
+									System.out.println("   " + (j+1) 
+											+ " - " 
+											+ controllerPedido.listaPedidos.get(i).getListaProdPedido()
+																	       .get(j).getNome());
 								}
-								System.out.println("Data: " + controllerPedido.listaPedidos.get(i).getData()); 
-								System.out.println("Cliente: " + controllerPedido.listaPedidos.get(i).getC());
-								System.out.println("Status: " + controllerPedido.listaPedidos.get(i).getStatus());
-								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
+								System.out.println("  Data: " + controllerPedido.listaPedidos.get(i).getData()); 
+								System.out.println("  Cliente: " + controllerPedido.listaPedidos.get(i).getC());
+								System.out.println("  Status: " + controllerPedido.listaPedidos.get(i).getStatus());
+								System.out.println("  Valor total: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							}
 						}
+						System.out.println("\n Digite a opção desejada: ");
+						System.out.println(" 1 - Marcar pedido como Finalizado ");
+						System.out.println(" 2 - Marca pedido como Em aberto");
+						System.out.println(" 3 - Voltar ao menu do administrador");
+						System.out.print(" -> ");
+						int opPedidos;
+						do {
+							opPedidos = scanner.nextInt();
+							switch(opPedidos) {
+								case 1:
+									controllerPedido.statusFinalizado();
+									
+									menuAdmin();
+								break;
+								case 2:
+									controllerPedido.statusEmAberto();
+									System.out.println(" Status do pedido alterado com sucesso!");
+									menuAdmin();
+								break;
+								case 3:
+									menuAdmin();
+								break;
+								default:
+									System.out.println(" Opção inválida. Tente novamente.");
+									menuAdmin();
+								break;
+							}
+						} while (opPedidos > 0 && opPedidos < 3);
 						break;
 					case 2:
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
@@ -66,7 +96,6 @@ public class AdministradorView {
 								System.out.println("Preço: " + controllerPedido.listaPedidos.get(i).getValorTotal());
 							}
 						}
-//						 lista de pedidos tres vassouras;
 						break;
 					case 3:
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
@@ -83,7 +112,6 @@ public class AdministradorView {
 							}
 						}
 						break;
-//						lista de pedidos cabeça de javali;
 				}
 				break;
 			case 2 :
