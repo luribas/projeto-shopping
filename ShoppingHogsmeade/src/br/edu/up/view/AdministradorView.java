@@ -67,6 +67,7 @@ public class AdministradorView {
 		}
 	}
 	
+	@SuppressWarnings("static-access")
 	static void loginAdmin(){
 		Administrador admin1 = new Administrador("admin", "admin");
 		controllerAdministrador.cadastrarAdmin(admin1);
@@ -82,6 +83,7 @@ public class AdministradorView {
 			menuAdmin();
 		} else {
 			System.out.println(" Usuário ou senha incorretos. Tente novamente.");
+			principal.menuPrincipal();
 		}
 	}
 }

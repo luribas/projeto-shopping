@@ -1,13 +1,11 @@
 package br.edu.up.model;
 
-import java.util.Calendar;
-
 public class Cartao {
 	private Cliente c = new Cliente();
-	private long numero;
+	private String numero;
 	private int cvv;
 	private String nomeCartao;
-	private Calendar dataValidade;
+	private String cpf;
 	
 	public Cliente getC() {
 		return c;
@@ -15,10 +13,10 @@ public class Cartao {
 	public void setC(Cliente c) {
 		this.c = c;
 	}
-	public long getNumero() {
+	public String getNumero() {
 		return numero;
 	}
-	public void setNumero(long numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 	public int getCvv() {
@@ -33,10 +31,10 @@ public class Cartao {
 	public void setNomeCartao(String nomeCartao) {
 		this.nomeCartao = nomeCartao;
 	}
-	public Calendar getDataValidade() {
-		return dataValidade;
+	public String getCpf() {
+		return cpf;
 	}
-	public void setDataValidade(Calendar dataValidade) {
-		this.dataValidade = dataValidade;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 }

@@ -19,6 +19,7 @@ public class ControllerPedido {
 	public static List<Pedido> listaPedidos = new ArrayList<>();
 	static Scanner scanner = new Scanner(System.in);
 	static Cartao cartao = new Cartao();
+	static DecimalFormat df = new DecimalFormat("0.##");
 	
 	public List<Pedido> listaDePedidos() {
 		return listaPedidos;
@@ -56,7 +57,8 @@ public class ControllerPedido {
 //			+ " / R$"
 //			+ listaDePedidos().get(i).getListaProdPedido().get(i).getPreco()); 
 //		}
-		System.out.println(" -> Valor total: R$" + soma);
+		String dxSoma = df.format(soma);
+		System.out.println(" -> Valor total: R$" + dxSoma);
 	}
 	
 	public void fazerPagamento(Cliente c) {
@@ -76,13 +78,20 @@ public class ControllerPedido {
 				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				System.out.println(" *           PAGAMENTO CARTÃO DE CRÉDITO           *");
 				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-				System.out.print(" Valor total a pagar: " + p.getValorTotal());
-				System.out.print(" Número do cartão: ");
-				long numeroCartao = scanner.nextLong();
+				String dxValorTotal = df.format(p.getValorTotal());
+				System.out.print(" Valor total a pagar: " + dxValorTotal);
+				System.out.print("\n Número do cartão: ");
+				String numeroCartao = scanner.next();
 				cartao.setNumero(numeroCartao);
-				System.out.println(" CVV: ");
+				System.out.print(" CVV: ");
 				int cvv = scanner.nextInt();
 				cartao.setCvv(cvv);
+				System.out.print(" Nome do titular: ");
+				String nome = scanner.next();
+				cartao.setNomeCartao(nome);
+				System.out.print(" CPF: ");
+				String cpf = scanner.next();
+				cartao.setCpf(cpf);
 				System.out.println("\n * Pagamento realizado com sucesso! *");
 				p.setStatus(StatusPedido.EmAberto);
 				break;
@@ -90,20 +99,21 @@ public class ControllerPedido {
 				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				System.out.println(" *         PAGAMENTO CARTÃO DE DÉBITO              *");
 				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-				System.out.println(" Favor pagar no caixa.");
-				System.out.println(" Valor total a pagar: " + p.getValorTotal());
+				String dxDebito = df.format(p.getValorTotal());
+				System.out.println("  Valor total a pagar: R$" + dxDebito);
+				System.out.println("\n  * Favor pagar no caixa. *");
 				p.setStatus(StatusPedido.EmAberto);
 				break;
 			case 3 :
 				System.out.println("\n * * * * * * * * * * * * * * * * * * * * * * * * * *");
 				System.out.println(" *              PAGAMENTO DINHEIRO                 *");
 				System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
-				System.out.println("  Valor total a pagar: R$" + p.getValorTotal());
+				String dxDinheiro = df.format(p.getValorTotal());
+				System.out.println("  Valor total a pagar: R$" + dxDinheiro);
 				System.out.print("  Quanto deseja pagar? R$");
 				double valorPagar = 0;
 				valorPagar = scanner.nextDouble();
 				double troco = valorPagar - p.getValorTotal();
-				DecimalFormat df = new DecimalFormat("0.##");
 				String dx = df.format(troco);
 				System.out.print("\n  -> Seu troco será: R$" + dx);
 				

@@ -10,7 +10,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		menuPrincipal();
-	} 
+	}
 
 	@SuppressWarnings("static-access")
 	static public void menuPrincipal() {
