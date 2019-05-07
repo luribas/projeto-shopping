@@ -41,7 +41,9 @@ public class AdministradorView {
 						System.out.println(" *       VISUALIZAR PEDIDOS CALDEIRÃO FURADO       *");
 						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
-							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("caldeirao")
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.AguardandoPagamento)){
 								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
 								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
@@ -102,7 +104,9 @@ public class AdministradorView {
 						System.out.println(" *       VISUALIZAR PEDIDOS TRÊS VASSORAS          *");
 						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
-							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("tres")){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("tres")
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.AguardandoPagamento)){
 								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
 								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {
@@ -163,7 +167,9 @@ public class AdministradorView {
 						System.out.println(" *       VISUALIZAR PEDIDOS CABEÇA DE JAVALI       *");
 						System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * *");
 						for (int i=0; i<controllerPedido.listaPedidos.size(); i++){
-							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("javali")){
+							if(controllerPedido.listaPedidos.get(i).getRestaurante().equals("javali")
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.EmAberto)
+									&& controllerPedido.listaPedidos.get(i).getStatus().equals(StatusPedido.AguardandoPagamento)){
 								System.out.println("  Senha do Pedido: " + controllerPedido.listaPedidos.get(i).getSenha());
 								System.out.println("  Produtos:");	 
 								for (int j = 0; j< controllerPedido.listaPedidos.get(i).getListaProdPedido().size(); j++) {

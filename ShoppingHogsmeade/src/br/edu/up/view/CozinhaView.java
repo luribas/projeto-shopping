@@ -81,6 +81,7 @@ public class CozinhaView {
 											System.out.println("\n Erro ao alterar Status. Tente novamente.");
 										}
 									}
+									menuCozinha();
 								break;
 								case 2:
 									menuCozinha();
@@ -132,6 +133,7 @@ public class CozinhaView {
 											System.out.println("\n Erro ao alterar Status. Tente novamente.");
 										}
 									}
+									menuCozinha();
 								break;
 								case 2:
 									menuCozinha();
@@ -180,6 +182,7 @@ public class CozinhaView {
 											System.out.println("\n Erro ao alterar Status. Tente novamente.");
 										}
 									}
+									menuCozinha();
 								break;
 								case 2:
 									menuCozinha();

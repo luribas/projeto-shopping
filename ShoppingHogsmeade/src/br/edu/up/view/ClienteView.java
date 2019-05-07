@@ -21,7 +21,7 @@ public class ClienteView {
 	public static void menuCliente() {
 		int op;
 		Cliente cliente1 = new Cliente("lu", "ribas", "lu@email.com", "123.654.789-11", "(41) 98746-4321", "lulu", "luluslindas");
-		Cliente cliente2 = new Cliente("lu", "ruivo", "lulu@email.com", "123.654.789-12", "(41) 96325-8741", "luruivo", "luluslindas"); 
+		Cliente cliente2 = new Cliente("lu", "ruivo", "lulu@email.com", "123.654.789-12", "(41) 96325-8741", "luizous", "123"); 
 		controllerCliente.cadastrarCliente(cliente1);
 		controllerCliente.cadastrarCliente(cliente2);
 		
